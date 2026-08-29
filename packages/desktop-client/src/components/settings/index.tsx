@@ -167,7 +167,6 @@ function AdvancedAbout() {
 
 export function Settings() {
   const { t } = useTranslation();
-  const [floatingSidebar] = useGlobalPref('floatingSidebar');
   const [budgetName] = useMetadataPref('budgetName');
   const dispatch = useDispatch();
   const isCurrencyExperimentalEnabled = useFeatureFlag('currency');
@@ -194,12 +193,7 @@ export function Settings() {
   const { isNarrowWidth } = useResponsive();
 
   return (
-    <Page
-      header={t('Settings')}
-      style={{
-        marginInline: floatingSidebar && !isNarrowWidth ? 'auto' : 0,
-      }}
-    >
+    <Page header={t('Settings')}>
       <View
         data-testid="settings"
         style={{

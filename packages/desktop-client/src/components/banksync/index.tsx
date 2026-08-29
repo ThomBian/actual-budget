@@ -1,7 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { useResponsive } from '@actual-app/components/hooks/useResponsive';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { View } from '@actual-app/components/view';
@@ -10,7 +9,6 @@ import type { AccountEntity } from '@actual-app/core/types/models';
 import { MOBILE_NAV_HEIGHT } from '#components/mobile/MobileNavTabs';
 import { Page } from '#components/Page';
 import { useAccounts } from '#hooks/useAccounts';
-import { useGlobalPref } from '#hooks/useGlobalPref';
 import { pushModal } from '#modals/modalsSlice';
 import { useDispatch } from '#redux';
 
@@ -26,10 +24,8 @@ import { useBuiltInBankSyncProviders } from './useBuiltInBankSyncProviders';
 
 export function BankSync() {
   const { t } = useTranslation();
-  const [floatingSidebar] = useGlobalPref('floatingSidebar');
   const { data: accounts = [] } = useAccounts();
   const dispatch = useDispatch();
-  const { isNarrowWidth } = useResponsive();
   const syncSourceReadable = useMemo(() => getSyncSourceReadable(t), [t]);
   const { providers, syncServerStatus, permissionWarning } =
     useBuiltInBankSyncProviders();
@@ -89,7 +85,6 @@ export function BankSync() {
       header={t('Bank Sync')}
       style={{
         minHeight: 'initial',
-        marginInline: floatingSidebar && !isNarrowWidth ? 'auto' : 0,
         paddingBottom: MOBILE_NAV_HEIGHT,
       }}
     >
