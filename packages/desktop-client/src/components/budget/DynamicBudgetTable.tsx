@@ -61,7 +61,6 @@ const DynamicBudgetTable = ({
     200 + 100 * categoryExpandedState,
   );
   const numMonths = Math.min(numPossible, maxMonths);
-  const maxWidth = 200 + 100 * categoryExpandedState + 500 * numMonths;
 
   useEffect(() => {
     setDisplayMax(numPossible);
@@ -143,11 +142,13 @@ const DynamicBudgetTable = ({
       style={{
         width,
         height,
-        alignItems: 'center',
+        // Anchor the table to the left and let it span the full viewport
+        // instead of centring it inside a fixed-width column.
+        alignItems: 'flex-start',
         opacity: width <= 0 || height <= 0 ? 0 : 1,
       }}
     >
-      <View style={{ width: '100%', maxWidth }}>
+      <View style={{ width: '100%' }}>
         <ErrorBoundary FallbackComponent={FeatureErrorFallback}>
           <BudgetPageHeader
             startMonth={prewarmStartMonth}
