@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
+import { radius } from '@actual-app/components/tokens';
 import { sheetForMonth } from '@actual-app/core/shared/months';
 import * as monthUtils from '@actual-app/core/shared/months';
 
@@ -39,7 +40,7 @@ export function TrackingBudgetSummaryModal({
                 alignSelf: 'center',
                 alignItems: 'flex-start',
                 backgroundColor: 'transparent',
-                borderRadius: 4,
+                borderRadius: radius.xs,
               }}
             >
               <IncomeTotal style={{ ...styles.mediumText }} />

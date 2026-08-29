@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 
 import { theme as themeStyle } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import type { Theme } from '@actual-app/core/types/prefs';
 import { css } from '@emotion/css';
 
@@ -36,7 +37,7 @@ export function useTagCSS(opts?: { ellipsis?: boolean }) {
           : { display: 'inline-flex' }),
         opacity: tagObj?.hidden ? 0.5 : undefined,
         padding: options.compact ? '0px 7px' : '3px 7px',
-        borderRadius: 16,
+        borderRadius: radius.xl,
         userSelect: 'none',
         backgroundColor,
         color,

@@ -1,7 +1,7 @@
 import { keyframes } from '@emotion/css';
 
 import { theme } from './theme';
-import { tokens } from './tokens';
+import { radius, shadows, tokens } from './tokens';
 
 // oxlint-disable-next-line typescript/no-explicit-any
 export type CSSProperties = Record<string, any>;
@@ -9,14 +9,14 @@ export type CSSProperties = Record<string, any>;
 const MOBILE_MIN_HEIGHT = 40;
 
 const shadowLarge = {
-  boxShadow: '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
+  boxShadow: shadows.lg,
 };
 
 export const styles: CSSProperties = {
   incomeHeaderHeight: 70,
-  cardShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+  cardShadow: shadows.md,
   monthRightPadding: 5,
-  menuBorderRadius: 4,
+  menuBorderRadius: radius.lg,
   mobileMinHeight: MOBILE_MIN_HEIGHT,
   mobileMenuItem: {
     fontSize: 17,
@@ -86,7 +86,7 @@ export const styles: CSSProperties = {
     userSelect: 'none',
   },
   shadow: {
-    boxShadow: '0 2px 4px 0 rgba(0,0,0,0.1)',
+    boxShadow: shadows.sm,
   },
   shadowLarge,
   tnum: {
@@ -132,7 +132,9 @@ export const styles: CSSProperties = {
     padding: 5,
     ...shadowLarge,
     borderWidth: 2,
-    borderRadius: 4,
+    // md rather than lg: the tooltip's padding is only 5px, so a larger radius
+    // starts to bow the short edges
+    borderRadius: radius.md,
     borderStyle: 'solid',
     borderColor: theme.tooltipBorder,
     backgroundColor: theme.tooltipBackground,
@@ -152,7 +154,7 @@ export const styles: CSSProperties = {
   editorPill: {
     color: theme.pillText,
     backgroundColor: theme.pillBackground,
-    borderRadius: 4,
+    borderRadius: radius.sm,
     padding: '3px 5px',
   },
   mobileListItem: {
@@ -164,8 +166,8 @@ export const styles: CSSProperties = {
   tableContainer: {
     flex: 1,
     border: '1px solid ' + theme.tableBorder,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
+    borderTopLeftRadius: radius.md,
+    borderTopRightRadius: radius.md,
     overflow: 'hidden',
   },
 };

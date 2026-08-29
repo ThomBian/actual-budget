@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type {
   AppendNoteRuleActionEntity,
@@ -36,7 +37,7 @@ export function ActionExpression({ style, ...props }: ActionExpressionProps) {
         maxWidth: '100%',
         color: theme.pillText,
         backgroundColor: theme.pillBackgroundLight,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         padding: '3px 5px',
         whiteSpace: 'nowrap',
         overflow: 'hidden',

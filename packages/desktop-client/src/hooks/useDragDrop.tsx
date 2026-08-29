@@ -19,6 +19,7 @@ import type {
 } from 'react-aria';
 
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 // ===========================================================================
@@ -509,7 +510,7 @@ export function DropHighlight({ pos, offset }: DropHighlightProps) {
         position: 'absolute',
         left: 2,
         right: 2,
-        borderRadius: 3,
+        borderRadius: radius.xxs,
         height: 3,
         background: theme.pageTextLink,
         zIndex: 10000,

@@ -3,6 +3,7 @@ import { Trans } from 'react-i18next';
 import { SvgAlertTriangle } from '@actual-app/components/icons/v2';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { getAutomationExamples } from '#components/budget/goals/automationExamples';
@@ -29,7 +30,7 @@ export function EmptyState({ onAdd }: EmptyStateProps) {
         style={{
           width: 56,
           height: 56,
-          borderRadius: 12,
+          borderRadius: radius.lg,
           margin: '0 auto 14px',
           backgroundColor: theme.upcomingBackground,
           color: theme.pageTextPositive,
@@ -89,7 +90,7 @@ export function EmptyState({ onAdd }: EmptyStateProps) {
               }}
               style={{
                 padding: 14,
-                borderRadius: 8,
+                borderRadius: radius.md,
                 backgroundColor: theme.cardBackground,
                 border: `1px solid ${theme.tableBorder}`,
                 gap: 6,
@@ -100,7 +101,7 @@ export function EmptyState({ onAdd }: EmptyStateProps) {
                 style={{
                   width: 30,
                   height: 30,
-                  borderRadius: 6,
+                  borderRadius: radius.sm,
                   backgroundColor: theme.upcomingBackground,
                   color: theme.pageTextPositive,
                   alignItems: 'center',

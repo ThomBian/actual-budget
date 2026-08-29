@@ -7,6 +7,7 @@ import { Label } from '@actual-app/components/label';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { IntegerAmount } from '@actual-app/core/shared/util';
 import type { TransactionEntity } from '@actual-app/core/types/models';
@@ -191,7 +192,7 @@ function AppliedFiltersChip() {
         gap: 6,
         backgroundColor: theme.pillBackgroundSelected,
         color: theme.pillTextSelected,
-        borderRadius: 15,
+        borderRadius: radius.pill,
         padding: '4px 10px',
       }}
     >

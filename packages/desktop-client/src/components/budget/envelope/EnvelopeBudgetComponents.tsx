@@ -12,6 +12,7 @@ import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import * as monthUtils from '@actual-app/core/shared/months';
 import { css } from '@emotion/css';
@@ -404,7 +405,7 @@ export const ExpenseCategoryMonth = memo(function ExpenseCategoryMonth({
             cursor: 'default',
             margin: 1,
             padding: '0 4px',
-            borderRadius: 4,
+            borderRadius: radius.xs,
             ':hover': {
               boxShadow: 'inset 0 0 0 1px ' + theme.pageTextSubdued, //remove mobile color variable
               backgroundColor: theme.budgetCurrentMonth,

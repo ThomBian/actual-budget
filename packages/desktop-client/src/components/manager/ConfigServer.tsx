@@ -8,6 +8,7 @@ import { BigInput } from '@actual-app/components/input';
 import { Label } from '@actual-app/components/label';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { isElectron } from '@actual-app/core/shared/environment';
 import { css } from '@emotion/css';
@@ -458,7 +459,7 @@ export function ConfigServer() {
                 style={{
                   marginTop: 20,
                   color: theme.errorText,
-                  borderRadius: 4,
+                  borderRadius: radius.xs,
                   fontSize: 15,
                 }}
               >
@@ -475,7 +476,7 @@ export function ConfigServer() {
                   <Text
                     style={{
                       color: theme.errorText,
-                      borderRadius: 4,
+                      borderRadius: radius.xs,
                       fontSize: 15,
                     }}
                   >

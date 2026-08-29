@@ -6,6 +6,7 @@ import { Button } from '@actual-app/components/button';
 import { SvgArrowButtonRight1 } from '@actual-app/components/icons/v2';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { q } from '@actual-app/core/shared/query';
 import type { Query } from '@actual-app/core/shared/query';
@@ -38,7 +39,7 @@ function DetailedBalance({
   return (
     <Text
       style={{
-        borderRadius: 4,
+        borderRadius: radius.xs,
         padding: '4px 6px',
         color: theme.pillText,
         backgroundColor: theme.pillBackground,

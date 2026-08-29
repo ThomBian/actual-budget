@@ -6,6 +6,7 @@ import { Button } from '@actual-app/components/button';
 import { Paragraph } from '@actual-app/components/paragraph';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
 
@@ -92,7 +93,7 @@ export function Bootstrap() {
           style={{
             marginTop: 20,
             color: theme.errorText,
-            borderRadius: 4,
+            borderRadius: radius.xs,
             fontSize: 15,
           }}
         >

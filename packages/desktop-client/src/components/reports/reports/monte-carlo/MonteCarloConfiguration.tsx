@@ -10,6 +10,7 @@ import { Select } from '@actual-app/components/select';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type {
   MonteCarloReturnModel,
@@ -87,7 +88,7 @@ export function MonteCarloConfiguration({
             height: 4,
             backgroundColor: theme.tableBorderSeparator,
             opacity: 1,
-            borderRadius: 4,
+            borderRadius: radius.xs,
           },
         })}
       />

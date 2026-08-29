@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { friendlyOp, mapField } from '#util/rule';
@@ -39,7 +40,7 @@ export function ConditionExpression({
         maxWidth: '100%',
         color: theme.pillText,
         backgroundColor: theme.pillBackgroundLight,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         padding: '3px 5px',
         whiteSpace: 'nowrap',
         overflow: 'hidden',

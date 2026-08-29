@@ -2,6 +2,7 @@
 
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { css } from '@emotion/css';
 import { newlineToBreak } from 'mdast-util-newline-to-break';
 
@@ -56,7 +57,7 @@ export const markdownBaseStyles = css({
   '& p': {
     margin: 0,
     ':not(:first-child)': {
-      marginTop: '0.25rem',
+      marginTop: `${radius.xs}px`,
     },
   },
   '& ul, & ol': {
@@ -84,21 +85,21 @@ export const markdownBaseStyles = css({
   '& code': {
     backgroundColor: theme.markdownLight,
     padding: '0.1rem 0.5rem',
-    borderRadius: '0.25rem',
+    borderRadius: `${radius.xs}px`,
   },
   '& pre': {
-    padding: '0.5rem',
+    padding: `${radius.md}px`,
     backgroundColor: theme.markdownLight,
     textAlign: 'left',
-    borderRadius: '0.5rem',
+    borderRadius: `${radius.md}px`,
     margin: 0,
     ':not(:first-child)': {
-      marginTop: '0.25rem',
+      marginTop: `${radius.xs}px`,
     },
     '& code': {
       background: 'inherit',
       padding: 0,
-      borderRadius: 0,
+      borderRadius: radius.none,
     },
   },
   '& table, & th, & td': {

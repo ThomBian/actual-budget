@@ -21,6 +21,7 @@ import {
 import { styles } from '@actual-app/components/styles';
 import { TextOneLine } from '@actual-app/components/text-one-line';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { formatDistance } from '@actual-app/core/shared/location-utils';
 import { getNormalisedString } from '@actual-app/core/shared/normalisation';
@@ -718,7 +719,7 @@ function PayeeItem({
   const narrowStyle = isNarrowWidth
     ? {
         ...styles.mobileMenuItem,
-        borderRadius: 0,
+        borderRadius: radius.none,
         borderTop: `1px solid ${theme.pillBorder}`,
       }
     : {};
@@ -812,7 +813,7 @@ function NearbyPayeeItem({
   const narrowStyle = isNarrowWidth
     ? {
         ...styles.mobileMenuItem,
-        borderRadius: 0,
+        borderRadius: radius.none,
         borderTop: `1px solid ${theme.pillBorder}`,
       }
     : {};
@@ -908,7 +909,7 @@ function NearbyPayeeItem({
             color: theme.pageText,
             fontSize: '11px',
             padding: '2px 6px',
-            borderRadius: 3,
+            borderRadius: radius.xxs,
           }}
         >
           <Trans i18nKey="forget">Forget</Trans>

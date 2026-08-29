@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AlignedText } from '@actual-app/components/aligned-text';
 import { theme } from '@actual-app/components/theme';
+import { radius, shadows } from '@actual-app/components/tokens';
 import type {
   balanceTypeOpType,
   DataEntity,
@@ -108,8 +109,8 @@ const CustomTooltip = ({
         className={css({
           zIndex: 1000,
           pointerEvents: 'none',
-          borderRadius: 2,
-          boxShadow: '0 1px 6px rgba(0, 0, 0, .20)',
+          borderRadius: radius.xxs,
+          boxShadow: shadows.md,
           backgroundColor: theme.menuBackground,
           color: theme.menuItemText,
           padding: 10,

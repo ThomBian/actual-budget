@@ -12,6 +12,7 @@ import {
 } from '@actual-app/components/icons/v2';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { ScheduleStatusType } from '@actual-app/core/shared/schedules';
 import { titleFirst } from '@actual-app/core/shared/util';
@@ -100,7 +101,7 @@ export function StatusBadge({ status }: { status: ScheduleStatusType }) {
         color,
         backgroundColor,
         padding: '6px 8px',
-        borderRadius: 4,
+        borderRadius: radius.xs,
         flexDirection: 'row',
         alignItems: 'center',
         flexShrink: 0,

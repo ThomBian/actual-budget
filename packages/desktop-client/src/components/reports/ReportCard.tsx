@@ -6,6 +6,7 @@ import { Button } from '@actual-app/components/button';
 import { useResponsive } from '@actual-app/components/hooks/useResponsive';
 import { SvgDotsHorizontalTriple } from '@actual-app/components/icons/v1';
 import { theme } from '@actual-app/components/theme';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { useContextMenu } from '#hooks/useContextMenu';
@@ -70,11 +71,11 @@ export function ReportCard({
       ref={ref}
       style={{
         backgroundColor: theme.tableBackground,
-        borderBottomLeftRadius: 2,
-        borderBottomRightRadius: 2,
+        borderBottomLeftRadius: radius.xxs,
+        borderBottomRightRadius: radius.xxs,
         width: '100%',
         height: '100%',
-        boxShadow: '0 2px 6px rgba(0, 0, 0, .15)',
+        boxShadow: shadows.md,
         transition: 'box-shadow .25s',
         ...(isEditing
           ? {
@@ -91,7 +92,7 @@ export function ReportCard({
               },
             }),
         ':hover': {
-          ...(to ? { boxShadow: '0 4px 6px rgba(0, 0, 0, .15)' } : null),
+          ...(to ? { boxShadow: shadows.md } : null),
           ...(isEditing ? { cursor: 'move', filter: 'grayscale(0)' } : null),
         },
         ...(to ? null : containerProps),

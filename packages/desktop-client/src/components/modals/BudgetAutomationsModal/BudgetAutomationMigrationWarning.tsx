@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import { Trans } from 'react-i18next';
 
 import { Text } from '@actual-app/components/text';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { Warning } from '#components/alerts';
@@ -50,7 +51,7 @@ export function BudgetAutomationMigrationWarning({
               fontSize: 11,
               marginTop: 6,
               padding: 8,
-              borderRadius: 4,
+              borderRadius: radius.xs,
               // Translucent overlay rather than a theme token so the inset
               // effect works regardless of the surrounding Warning colour
               // (which differs between light/dark/midnight themes).

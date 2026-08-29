@@ -5,6 +5,7 @@ import { Button, ButtonWithLoading } from '@actual-app/components/button';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { Information } from '#components/alerts';
@@ -22,7 +23,7 @@ function DirectoryDisplay({ directory }: { directory: string }) {
         style={{
           backgroundColor: theme.pageBackground,
           padding: '5px 10px',
-          borderRadius: 4,
+          borderRadius: radius.xs,
           overflow: 'auto',
           whiteSpace: 'nowrap',
           width: '100%',
@@ -119,7 +120,7 @@ export function ConfirmChangeDocumentDirModal({
                 alignSelf: 'flex-start',
                 alignItems: 'flex-start',
                 padding: 15,
-                borderRadius: 4,
+                borderRadius: radius.xs,
                 border: '1px solid ' + theme.pillBorderDark,
                 width: '100%',
               }}

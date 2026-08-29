@@ -7,6 +7,7 @@ import { SvgMenu } from '@actual-app/components/icons/v1';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
 import { Toggle } from '@actual-app/components/toggle';
+import { radius } from '@actual-app/components/tokens';
 import { css } from '@emotion/css';
 
 import { isTransactionTableColumnLocked } from '#components/transactions/table/columns';
@@ -40,7 +41,7 @@ export function TransactionTableColumnListItem({
         gap: 10,
         padding: '8px 10px',
         marginBottom: 4,
-        borderRadius: 6,
+        borderRadius: radius.sm,
         border: '1px solid ' + theme.tableBorder,
         backgroundColor: theme.tableBackground,
         outline: 'none',

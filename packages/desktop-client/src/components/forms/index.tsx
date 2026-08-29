@@ -4,6 +4,7 @@ import type { ComponentProps, ReactNode } from 'react';
 import type { CSSProperties } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css } from '@emotion/css';
 
@@ -106,7 +107,7 @@ export const Checkbox = (props: CheckboxProps) => {
           appearance: 'none',
           outline: 0,
           border: '1px solid ' + theme.formInputBorder,
-          borderRadius: 4,
+          borderRadius: radius.xs,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -145,7 +146,7 @@ export const Checkbox = (props: CheckboxProps) => {
               left: -5,
               right: -5,
               border: '2px solid ' + theme.checkboxBorderSelected,
-              borderRadius: 6,
+              borderRadius: radius.sm,
 
               content: '" "',
             },

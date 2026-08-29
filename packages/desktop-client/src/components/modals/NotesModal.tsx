@@ -4,6 +4,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import { Button } from '@actual-app/components/button';
 import { SvgCheck } from '@actual-app/components/icons/v2';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { Modal, ModalCloseButton, ModalHeader } from '#components/common/Modal';
@@ -50,7 +51,7 @@ export function NotesModal({ id, name, onSave }: NotesModalProps) {
               editable
               focused
               getStyle={() => ({
-                borderRadius: 6,
+                borderRadius: radius.sm,
                 flex: 1,
                 minWidth: 0,
               })}

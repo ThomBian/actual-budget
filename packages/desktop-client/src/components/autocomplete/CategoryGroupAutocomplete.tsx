@@ -12,6 +12,7 @@ import { useResponsive } from '@actual-app/components/hooks/useResponsive';
 import { styles } from '@actual-app/components/styles';
 import { TextOneLine } from '@actual-app/components/text-one-line';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { CategoryGroupEntity } from '@actual-app/core/types/models';
 import { css, cx } from '@emotion/css';
@@ -171,7 +172,7 @@ function CategoryGroupItem({
   const narrowStyle = isNarrowWidth
     ? {
         ...styles.mobileMenuItem,
-        borderRadius: 0,
+        borderRadius: radius.none,
         borderTop: `1px solid ${theme.pillBorder}`,
       }
     : {};

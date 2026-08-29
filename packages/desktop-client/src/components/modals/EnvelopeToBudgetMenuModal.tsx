@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 
 import { ToBudgetMenu } from '#components/budget/envelope/budgetsummary/ToBudgetMenu';
 import { Modal, ModalCloseButton, ModalHeader } from '#components/common/Modal';
@@ -24,7 +25,7 @@ export function EnvelopeToBudgetMenuModal({
   const defaultMenuItemStyle: CSSProperties = {
     ...styles.mobileMenuItem,
     color: theme.menuItemText,
-    borderRadius: 0,
+    borderRadius: radius.none,
     borderTop: `1px solid ${theme.pillBorder}`,
   };
 

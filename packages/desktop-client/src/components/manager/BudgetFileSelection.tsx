@@ -25,7 +25,7 @@ import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
-import { tokens } from '@actual-app/components/tokens';
+import { radius, tokens } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import {
@@ -318,7 +318,7 @@ function BudgetFileListItem({
           margin: '5px 10px',
           padding: 15,
           cursor: 'pointer',
-          borderRadius: 6,
+          borderRadius: radius.sm,
           backgroundColor: theme.buttonNormalBackground,
           '&:hover': {
             backgroundColor: theme.buttonNormalBackgroundHover,

@@ -5,6 +5,7 @@ import { Trans } from 'react-i18next';
 import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import {
   autocompletion,
@@ -212,7 +213,7 @@ class FormulaBadgeWidget extends WidgetType {
       textOverflow: 'clip',
       whiteSpace: 'normal',
       padding: '2px 4px',
-      borderRadius: '4px',
+      borderRadius: `${radius.xs}px`,
       backgroundColor: theme.tableRowBackgroundHover,
       lineHeight: '20px',
       gap: '4px',
@@ -225,7 +226,7 @@ class FormulaBadgeWidget extends WidgetType {
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
       padding: '0 6px',
-      borderRadius: '999px',
+      borderRadius: `${radius.pill}px`,
       lineHeight: '18px',
     };
     let singleBadgeColorStyle = {
@@ -260,7 +261,7 @@ class FormulaBadgeWidget extends WidgetType {
           whiteSpace: 'normal',
           overflowWrap: 'anywhere',
           padding: '0 6px',
-          borderRadius: '999px',
+          borderRadius: `${radius.pill}px`,
           backgroundColor: theme.buttonNormalBackground,
           color: theme.pageText,
           lineHeight: '18px',
@@ -810,7 +811,7 @@ const autocompletePopoverTheme = EditorView.baseTheme({
     listStyle: 'none',
     backgroundColor: theme.menuAutoCompleteBackground,
     color: theme.menuAutoCompleteText,
-    borderRadius: '6px',
+    borderRadius: `${radius.sm}px`,
     overflow: 'hidden',
     overflowY: 'auto',
   },
@@ -865,7 +866,7 @@ const autocompletePopoverTheme = EditorView.baseTheme({
       display: 'flex',
       alignItems: 'baseline',
       gap: '8px',
-      borderRadius: 0,
+      borderRadius: radius.none,
     },
 
   '.cm-tooltip.cm-tooltip-autocomplete li.cm-completionItem': {
@@ -874,7 +875,7 @@ const autocompletePopoverTheme = EditorView.baseTheme({
     display: 'flex',
     alignItems: 'baseline',
     gap: '8px',
-    borderRadius: 0,
+    borderRadius: radius.none,
   },
 
   '.cm-tooltip.cm-tooltip-autocomplete li.cm-completionItem[aria-selected], .cm-tooltip.cm-tooltip-autocomplete li.cm-completionItem:hover, .cm-tooltip.cm-tooltip-autocomplete li.cm-completionItem-hover':
@@ -923,7 +924,7 @@ const autocompletePopoverTheme = EditorView.baseTheme({
     lineHeight: '1.4',
     ...styles.shadowLarge,
     border: 'none',
-    borderRadius: '6px',
+    borderRadius: `${radius.sm}px`,
     marginLeft: '8px',
   },
 });

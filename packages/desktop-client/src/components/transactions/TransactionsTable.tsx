@@ -45,6 +45,7 @@ import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
@@ -523,7 +524,7 @@ function StatusCell({
           padding: 3,
           backgroundColor: 'transparent',
           border: '1px solid transparent',
-          borderRadius: 50,
+          borderRadius: radius.pill,
           ':focus': {
             ...(isPreview
               ? {
@@ -680,7 +681,7 @@ function PayeeCell({
         bare
         style={{
           alignSelf: 'stretch',
-          borderRadius: 4,
+          borderRadius: radius.xs,
           border: '1px solid transparent', // so it doesn't shift on hover
           ':hover': isPreview
             ? {}
@@ -709,7 +710,7 @@ function PayeeCell({
             flexDirection: 'row',
             alignItems: 'center',
             alignSelf: 'stretch',
-            borderRadius: 4,
+            borderRadius: radius.xs,
             flex: 1,
             padding: 4,
             color: theme.pageTextSubdued,
@@ -758,7 +759,7 @@ function PayeeCell({
                 }
                 style={{
                   ...styles.tooltip,
-                  borderRadius: '0px 5px 5px 0px',
+                  borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
                 }}
                 placement="bottom"
                 triggerProps={{ delay: 750 }}
@@ -839,7 +840,7 @@ function PayeeCell({
                   }
                   style={{
                     ...styles.tooltip,
-                    borderRadius: '0px 5px 5px 0px',
+                    borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
                   }}
                   placement="bottom"
                   triggerProps={{ delay: 750 }}
@@ -1808,7 +1809,7 @@ const Transaction = memo(function Transaction({
                           : theme.upcomingBackground,
                   margin: '0 5px',
                   padding: '3px 7px',
-                  borderRadius: 4,
+                  borderRadius: radius.xs,
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   display: 'inline-block',
@@ -1821,7 +1822,7 @@ const Transaction = memo(function Transaction({
             <CellButton
               bare
               style={{
-                borderRadius: 4,
+                borderRadius: radius.xs,
                 border: '1px solid transparent', // so it doesn't shift on hover
                 ':hover': {
                   border: '1px solid ' + theme.buttonNormalBorder,
@@ -1836,7 +1837,7 @@ const Transaction = memo(function Transaction({
                   flexDirection: 'row',
                   alignItems: 'center',
                   alignSelf: 'stretch',
-                  borderRadius: 4,
+                  borderRadius: radius.xs,
                   flex: 1,
                   padding: 4,
                   color: theme.pageTextSubdued,
@@ -2155,9 +2156,9 @@ const Transaction = memo(function Transaction({
           <View
             style={{
               backgroundColor: theme.tableBackground,
-              borderRadius: 4,
+              borderRadius: radius.xs,
               padding: '8px 16px',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+              boxShadow: shadows.lg,
               width: '50vw',
               minWidth: 500,
               flexDirection: 'row',
@@ -2975,7 +2976,7 @@ function TransactionTableInner({
               right: 0,
               height: 20,
               backgroundColor: theme.errorText,
-              boxShadow: '0 0 6px rgba(0, 0, 0, .20)',
+              boxShadow: shadows.md,
             }}
           />
         )}

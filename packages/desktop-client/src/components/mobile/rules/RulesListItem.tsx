@@ -6,6 +6,7 @@ import { Button } from '@actual-app/components/button';
 import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { RuleEntity } from '@actual-app/core/types/models';
 import type { WithRequired } from '@actual-app/core/types/util';
@@ -74,7 +75,7 @@ export function RulesListItem({
               paddingRight: 6,
               paddingTop: 2,
               paddingBottom: 2,
-              borderRadius: 3,
+              borderRadius: radius.xxs,
             }}
           >
             <span
@@ -164,7 +165,7 @@ export function RulesListItem({
                       padding: '6px',
                       borderColor: theme.tableBorder,
                       borderWidth: '1px',
-                      borderRadius: '5px',
+                      borderRadius: `${radius.xs}px`,
                     }}
                   >
                     <span

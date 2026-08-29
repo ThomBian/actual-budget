@@ -18,6 +18,7 @@ import {
 import { SvgCalendar3 } from '@actual-app/components/icons/v2';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { useDrag } from '@use-gesture/react';
 
@@ -234,7 +235,7 @@ export function MobileNavTabs() {
         <div
           style={{
             backgroundColor: theme.pillBorder,
-            borderRadius: 10,
+            borderRadius: radius.pill,
             width: 30,
             marginTop: 5,
             marginBottom: 5,

@@ -10,6 +10,7 @@ import { Select } from '@actual-app/components/select';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
 import { Toggle } from '@actual-app/components/toggle';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { FormulaWidget } from '@actual-app/core/types/models';
 
@@ -336,7 +337,7 @@ function FormulaInner({ widget }: FormulaInnerProps) {
                 width: '100%',
                 overflow: 'auto',
                 backgroundColor: theme.cardBackground,
-                borderRadius: 6,
+                borderRadius: radius.sm,
                 ...styles.horizontalScrollbar,
                 '::-webkit-scrollbar': {
                   height: '8px',
@@ -452,7 +453,7 @@ function FormulaInner({ widget }: FormulaInnerProps) {
             <View
               style={{
                 border: `1px solid ${theme.formInputBorder}`,
-                borderRadius: 4,
+                borderRadius: radius.xs,
                 overflow: 'hidden',
                 backgroundColor: theme.tableBackground,
               }}

@@ -2,6 +2,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import type { CSSProperties } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css } from '@emotion/css';
 import {
@@ -46,8 +47,8 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
         className={css({
           zIndex: 1000,
           pointerEvents: 'none',
-          borderRadius: 2,
-          boxShadow: '0 1px 6px rgba(0, 0, 0, .20)',
+          borderRadius: radius.xxs,
+          boxShadow: shadows.md,
           backgroundColor: theme.menuBackground,
           color: theme.menuItemText,
           padding: 10,

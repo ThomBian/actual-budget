@@ -36,6 +36,7 @@ import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import type { CSSProperties } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import {
   currentDate,
@@ -76,7 +77,7 @@ const pickerStyles: CSSProperties = {
     color: theme.calendarText,
     background: theme.calendarBackground,
     boxShadow: calendarShadow,
-    borderRadius: 4,
+    borderRadius: radius.xs,
     padding: 10,
   },
   '& .calendar-header': {
@@ -89,7 +90,7 @@ const pickerStyles: CSSProperties = {
       color: 'inherit',
       background: 'none',
       border: 'none',
-      borderRadius: 4,
+      borderRadius: radius.xs,
       padding: 5,
       cursor: 'pointer',
       display: 'flex',
@@ -128,7 +129,7 @@ const pickerStyles: CSSProperties = {
     },
     '&[data-selected]': {
       backgroundColor: theme.calendarSelectedBackground,
-      borderRadius: 4,
+      borderRadius: radius.xs,
     },
     '&[data-disabled]': {
       opacity: 0.4,
@@ -226,8 +227,8 @@ const DatePicker = forwardRef<DatePickerForwardedRef, DatePickerProps>(
           pickerStyles,
           attached && {
             '& .react-aria-Calendar': {
-              borderBottomLeftRadius: 0,
-              borderBottomRightRadius: 0,
+              borderBottomLeftRadius: radius.none,
+              borderBottomRightRadius: radius.none,
               boxShadow: 'none',
             },
           },
@@ -524,7 +525,7 @@ function DateSelectDesktop({
         <View
           style={
             onTransferDateSyncChange
-              ? { borderRadius: 4, boxShadow: calendarShadow }
+              ? { borderRadius: radius.xs, boxShadow: calendarShadow }
               : undefined
           }
         >
@@ -554,8 +555,8 @@ function DateSelectDesktop({
               onMouseDown={e => e.preventDefault()}
               style={{
                 padding: '6px 8px',
-                borderBottomLeftRadius: 4,
-                borderBottomRightRadius: 4,
+                borderBottomLeftRadius: radius.xs,
+                borderBottomRightRadius: radius.xs,
                 backgroundColor: theme.calendarBackground,
                 color: theme.calendarText,
               }}

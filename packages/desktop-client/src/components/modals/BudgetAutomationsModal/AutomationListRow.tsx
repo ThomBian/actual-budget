@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { SvgAlertTriangle } from '@actual-app/components/icons/v2';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 
@@ -78,7 +79,7 @@ export function AutomationListRow({
         alignItems: 'center',
         gap: 10,
         padding: 10,
-        borderRadius: 6,
+        borderRadius: radius.sm,
         border: `1px solid ${borderColor}`,
         backgroundColor,
         cursor: 'pointer',
@@ -89,7 +90,7 @@ export function AutomationListRow({
         style={{
           width: 28,
           height: 28,
-          borderRadius: 6,
+          borderRadius: radius.sm,
           backgroundColor: error
             ? theme.errorBackground
             : isActive

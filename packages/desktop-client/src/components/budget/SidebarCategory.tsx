@@ -7,6 +7,7 @@ import { Button } from '@actual-app/components/button';
 import { SvgCheveronDown } from '@actual-app/components/icons/v1';
 import { TextOneLine } from '@actual-app/components/text-one-line';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type {
   CategoryEntity,
@@ -142,7 +143,7 @@ export function SidebarCategory({
         ...(dragPreview && {
           backgroundColor: theme.budgetCurrentMonth,
           zIndex: 10000,
-          borderRadius: 6,
+          borderRadius: radius.sm,
           overflow: 'hidden',
         }),
         ...style,

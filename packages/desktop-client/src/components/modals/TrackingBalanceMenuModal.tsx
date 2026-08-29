@@ -5,6 +5,7 @@ import { Trans } from 'react-i18next';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import {
@@ -35,7 +36,7 @@ export function TrackingBalanceMenuModal({
   const defaultMenuItemStyle: CSSProperties = {
     ...styles.mobileMenuItem,
     color: theme.menuItemText,
-    borderRadius: 0,
+    borderRadius: radius.none,
     borderTop: `1px solid ${theme.pillBorder}`,
   };
 

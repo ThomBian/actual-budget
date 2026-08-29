@@ -6,6 +6,7 @@ import { Menu } from '@actual-app/components/menu';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { format } from '@actual-app/core/shared/months';
 import { q } from '@actual-app/core/shared/query';
@@ -39,7 +40,7 @@ export function ScheduledTransactionMenuModal({
   const defaultMenuItemStyle: CSSProperties = {
     ...styles.mobileMenuItem,
     color: theme.menuItemText,
-    borderRadius: 0,
+    borderRadius: radius.none,
     borderTop: `1px solid ${theme.pillBorder}`,
   };
   const scheduleId = transactionId?.split('/')?.[1];

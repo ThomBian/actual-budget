@@ -6,6 +6,7 @@ import { Button } from '@actual-app/components/button';
 import { SvgBookmark } from '@actual-app/components/icons/v1';
 import { SpaceBetween } from '@actual-app/components/space-between';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { PayeeEntity } from '@actual-app/core/types/models';
 import type { WithRequired } from '@actual-app/core/types/util';
@@ -50,7 +51,7 @@ export function PayeesListItem({
                 color: theme.pillText,
                 backgroundColor: theme.pillBackground,
                 flex: 1,
-                borderRadius: 0,
+                borderRadius: radius.none,
               }}
             >
               {ruleCount > 0 ? (
@@ -65,7 +66,7 @@ export function PayeesListItem({
               style={{
                 color: theme.errorText,
                 flex: 1,
-                borderRadius: 0,
+                borderRadius: radius.none,
               }}
             >
               <Trans>Delete</Trans>
@@ -115,7 +116,7 @@ export function PayeesListItem({
 
           <span
             style={{
-              borderRadius: 4,
+              borderRadius: radius.xs,
               padding: '3px 6px',
               backgroundColor: theme.noticeBackground,
               border: '1px solid ' + theme.noticeBackground,

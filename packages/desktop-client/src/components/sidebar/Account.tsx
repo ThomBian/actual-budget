@@ -15,6 +15,7 @@ import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import type { AccountEntity } from '@actual-app/core/types/models';
@@ -210,7 +211,7 @@ export function Account<FieldName extends SheetFields<'account'>>({
                     marginRight: 3,
                     width: 5,
                     height: 5,
-                    borderRadius: 5,
+                    borderRadius: radius.xs,
                     backgroundColor: pending
                       ? theme.sidebarItemBackgroundPending
                       : failed
@@ -343,7 +344,10 @@ export function Account<FieldName extends SheetFields<'account'>>({
           )}
         </View>
       }
-      style={{ ...styles.tooltip, borderRadius: '0px 5px 5px 0px' }}
+      style={{
+        ...styles.tooltip,
+        borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
+      }}
       placement="right top"
       triggerProps={{
         delay: 1000,

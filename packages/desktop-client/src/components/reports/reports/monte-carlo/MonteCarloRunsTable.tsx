@@ -5,6 +5,7 @@ import { Button } from '@actual-app/components/button';
 import { Select } from '@actual-app/components/select';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { FinancialText } from '#components/FinancialText';
@@ -164,7 +165,7 @@ export function MonteCarloRunsTable({
             style={{
               padding: '8px 0',
               borderBottom: `1px solid ${theme.tableBorder}`,
-              borderRadius: 0,
+              borderRadius: radius.none,
               ...(isHighlighted && {
                 backgroundColor: theme.tableRowBackgroundHighlight,
               }),

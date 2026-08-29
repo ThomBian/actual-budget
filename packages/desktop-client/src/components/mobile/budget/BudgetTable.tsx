@@ -10,6 +10,7 @@ import { Label } from '@actual-app/components/label';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import * as monthUtils from '@actual-app/core/shared/months';
 import { q } from '@actual-app/core/shared/query';
@@ -37,7 +38,7 @@ import { IncomeGroup } from './IncomeGroup';
 export const ROW_HEIGHT = 50;
 
 export const PILL_STYLE: CSSProperties = {
-  borderRadius: 16,
+  borderRadius: radius.xl,
   color: theme.pillText,
   backgroundColor: theme.pillBackgroundLight,
 };

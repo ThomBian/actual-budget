@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Menu } from '@actual-app/components/menu';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 
 import { Modal, ModalCloseButton, ModalHeader } from '#components/common/Modal';
 import { useLocalPref } from '#hooks/useLocalPref';
@@ -23,7 +24,7 @@ export function BudgetPageMenuModal({
   const defaultMenuItemStyle: CSSProperties = {
     ...styles.mobileMenuItem,
     color: theme.menuItemText,
-    borderRadius: 0,
+    borderRadius: radius.none,
     borderTop: `1px solid ${theme.pillBorder}`,
   };
 

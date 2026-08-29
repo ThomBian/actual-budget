@@ -7,6 +7,7 @@ import { styles } from '@actual-app/components/styles';
 import type { CSSProperties } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
 import type { AccountEntity } from '@actual-app/core/types/models';
@@ -233,7 +234,7 @@ function AccountHeader({ account }: { readonly account: AccountEntity }) {
             marginRight: 5,
             width: 8,
             height: 8,
-            borderRadius: 8,
+            borderRadius: radius.md,
             flexShrink: 0,
             backgroundColor: pending
               ? theme.sidebarItemBackgroundPending

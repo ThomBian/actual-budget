@@ -19,6 +19,7 @@ import {
 } from '@actual-app/components/icons/v2';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css } from '@emotion/css';
 import { Command } from 'cmdk';
@@ -283,8 +284,8 @@ export function CommandBar() {
         backgroundColor: 'var(--color-modalBackground)',
         border: '1px solid var(--color-modalBorder)',
         color: 'var(--color-pageText)',
-        borderRadius: '8px',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+        borderRadius: `${radius.md}px`,
+        boxShadow: shadows.lg,
         overflow: 'hidden',
         zIndex: 3001,
       })}
@@ -348,7 +349,7 @@ export function CommandBar() {
                       padding: '8px 16px',
                       cursor: 'pointer',
                       fontSize: '0.9rem',
-                      borderRadius: '4px',
+                      borderRadius: `${radius.xs}px`,
                       margin: '0',
                       display: 'flex',
                       alignItems: 'center',

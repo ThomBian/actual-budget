@@ -7,7 +7,7 @@ import { Input } from '@actual-app/components/input';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
-import { tokens } from '@actual-app/components/tokens';
+import { radius, tokens } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { dayFromDate, firstDayOfMonth } from '@actual-app/core/shared/months';
 import type {
@@ -210,7 +210,7 @@ export function AutomationEditorPane({
           <View
             style={{
               padding: '10px 12px',
-              borderRadius: 6,
+              borderRadius: radius.sm,
               backgroundColor: theme.errorBackground,
               border: `1px solid ${theme.errorBorder}`,
               color: theme.errorText,
@@ -282,7 +282,7 @@ export function AutomationEditorPane({
               style={{
                 padding: 16,
                 backgroundColor: theme.tableBackground,
-                borderRadius: 6,
+                borderRadius: radius.sm,
                 border: `1px solid ${theme.tableBorder}`,
               }}
             >
@@ -396,7 +396,7 @@ export function AutomationEditorPane({
             fontSize: 13,
             lineHeight: 1.4,
             padding: '8px 10px',
-            borderRadius: 6,
+            borderRadius: radius.sm,
             border: `1px solid ${theme.formInputBorder}`,
             backgroundColor: theme.tableBackground,
             color: theme.tableText,

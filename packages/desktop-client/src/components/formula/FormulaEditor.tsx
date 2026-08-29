@@ -4,6 +4,7 @@ import { Trans } from 'react-i18next';
 
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { EditorView } from '@codemirror/view';
 import CodeMirror, { EditorState } from '@uiw/react-codemirror';
 import type { ReactCodeMirrorProps } from '@uiw/react-codemirror';
@@ -474,7 +475,7 @@ const TIMEFRAME_PICKER_WIDTH = 260;
 
 const pickerActionButtonStyle = {
   border: 0,
-  borderRadius: 4,
+  borderRadius: radius.xs,
   padding: '5px 8px',
   background: theme.buttonNormalBackground,
   color: theme.buttonNormalText,
@@ -537,7 +538,7 @@ function BadgeMenuButton({
         display: 'block',
         width: '100%',
         border: 0,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         padding: '7px 8px',
         background: selected ? theme.menuItemBackgroundHover : 'transparent',
         color: theme.pageText,

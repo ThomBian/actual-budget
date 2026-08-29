@@ -17,6 +17,7 @@ import { SvgCheveronLeft, SvgCheveronRight } from '#icons/v1';
 import type { CSSProperties } from '#styles';
 import { theme } from '#theme';
 import { View } from '#View';
+import { radius } from '../tokens';
 
 import type { DateRangePickerLabels, FirstDayOfWeek } from './util';
 import { YearSelect } from './YearSelect';
@@ -36,7 +37,7 @@ const calendarStyles: CSSProperties = {
       color: 'inherit',
       background: 'none',
       border: 'none',
-      borderRadius: 4,
+      borderRadius: radius.xs,
       padding: 5,
       cursor: 'pointer',
       display: 'flex',
@@ -47,7 +48,7 @@ const calendarStyles: CSSProperties = {
       color: 'inherit',
       background: 'none',
       border: 'none',
-      borderRadius: 4,
+      borderRadius: radius.xs,
       padding: 4,
       fontWeight: 'bold',
       fontSize: 13,
@@ -86,28 +87,28 @@ const calendarStyles: CSSProperties = {
     },
     '&[data-hovered]': {
       backgroundColor: theme.buttonBareBackgroundHover,
-      borderRadius: 4,
+      borderRadius: radius.xs,
     },
     // Same current-day treatment as the month grid's GridButton.
     '&[data-today]': {
       fontWeight: 'bold',
       boxShadow: `inset 0 0 0 1px ${theme.pageTextPositive}`,
-      borderRadius: 4,
+      borderRadius: radius.xs,
       color: theme.pageTextPositive,
     },
     '&[data-selected]': {
       backgroundColor: theme.datePickerRangeBackground,
-      borderRadius: 0,
+      borderRadius: radius.none,
     },
     '&[data-selection-start], &[data-selection-end]': {
       backgroundColor: theme.buttonPrimaryBackground,
       color: theme.buttonPrimaryText,
     },
     '&[data-selection-start]': {
-      borderRadius: '4px 0 0 4px',
+      borderRadius: `${radius.xs}px 0 0 ${radius.xs}px`,
     },
     '&[data-selection-end]': {
-      borderRadius: '0 4px 4px 0',
+      borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
     },
     '&[data-disabled]': {
       opacity: 0.4,

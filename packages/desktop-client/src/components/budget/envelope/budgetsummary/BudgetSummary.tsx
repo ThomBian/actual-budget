@@ -10,6 +10,7 @@ import {
 import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import * as monthUtils from '@actual-app/core/shared/months';
 import { css } from '@emotion/css';
@@ -71,7 +72,7 @@ export const BudgetSummary = memo(({ month }: BudgetSummaryProps) => {
             ? theme.budgetCurrentMonth
             : theme.budgetOtherMonth,
         boxShadow: styles.cardShadow,
-        borderRadius: 6,
+        borderRadius: radius.sm,
         marginLeft: 0,
         marginRight: 0,
         marginTop: 5,

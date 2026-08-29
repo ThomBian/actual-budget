@@ -5,6 +5,7 @@ import { Button } from '@actual-app/components/button';
 import { SvgClose } from '@actual-app/components/icons/v1';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { setAppState, updateApp } from '#app/appSlice';
@@ -37,7 +38,7 @@ export function UpdateNotification() {
           backgroundColor: theme.pageTextPositive,
           color: theme.tableBackground,
           padding: '7px 10px',
-          borderRadius: 4,
+          borderRadius: radius.xs,
           zIndex: 10000,
           maxWidth: 450,
         }}

@@ -9,6 +9,7 @@ import {
   SvgLightBulb,
 } from '@actual-app/components/icons/v1';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import type { PayeeEntity } from '@actual-app/core/types/models';
 
@@ -44,7 +45,7 @@ function RuleButton({ ruleCount, focused, onEdit, onClick }: RuleButtonProps) {
     >
       <CellButton
         style={{
-          borderRadius: 4,
+          borderRadius: radius.xs,
           padding: '3px 6px',
           backgroundColor: theme.noticeBackground,
           border: '1px solid ' + theme.noticeBackground,
