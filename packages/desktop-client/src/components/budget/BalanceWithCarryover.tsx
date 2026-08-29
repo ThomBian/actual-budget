@@ -11,6 +11,7 @@ import { useResponsive } from '@actual-app/components/hooks/useResponsive';
 import { SvgArrowThinRight } from '@actual-app/components/icons/v1';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import type { TransObjectLiteral } from '@actual-app/core/types/util';
@@ -252,7 +253,10 @@ export function BalanceWithCarryover({
                 {GoalStatusDisplay(balanceValue, type)}
               </View>
             }
-            style={{ ...styles.tooltip, borderRadius: '0px 5px 5px 0px' }}
+            style={{
+              ...styles.tooltip,
+              borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
+            }}
             placement="bottom"
             triggerProps={{
               delay: 750,

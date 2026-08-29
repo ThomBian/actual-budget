@@ -1562,7 +1562,7 @@ export function RuleEditor({
             fields={getTransactionFields(conditions, getActions(actionSplits))}
             style={{
               border: '1px solid ' + theme.tableBorder,
-              borderRadius: '6px 6px 0 0',
+              borderRadius: `${radius.sm}px ${radius.sm}px 0 0`,
             }}
           />
 

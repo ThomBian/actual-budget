@@ -344,7 +344,10 @@ export function Account<FieldName extends SheetFields<'account'>>({
           )}
         </View>
       }
-      style={{ ...styles.tooltip, borderRadius: '0px 5px 5px 0px' }}
+      style={{
+        ...styles.tooltip,
+        borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
+      }}
       placement="right top"
       triggerProps={{
         delay: 1000,

@@ -57,7 +57,7 @@ export const markdownBaseStyles = css({
   '& p': {
     margin: 0,
     ':not(:first-child)': {
-      marginTop: '0.25rem',
+      marginTop: `${radius.xs}px`,
     },
   },
   '& ul, & ol': {
@@ -85,16 +85,16 @@ export const markdownBaseStyles = css({
   '& code': {
     backgroundColor: theme.markdownLight,
     padding: '0.1rem 0.5rem',
-    borderRadius: '0.25rem',
+    borderRadius: `${radius.xs}px`,
   },
   '& pre': {
-    padding: '0.5rem',
+    padding: `${radius.md}px`,
     backgroundColor: theme.markdownLight,
     textAlign: 'left',
-    borderRadius: '0.5rem',
+    borderRadius: `${radius.md}px`,
     margin: 0,
     ':not(:first-child)': {
-      marginTop: '0.25rem',
+      marginTop: `${radius.xs}px`,
     },
     '& code': {
       background: 'inherit',

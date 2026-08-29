@@ -759,7 +759,7 @@ function PayeeCell({
                 }
                 style={{
                   ...styles.tooltip,
-                  borderRadius: '0px 5px 5px 0px',
+                  borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
                 }}
                 placement="bottom"
                 triggerProps={{ delay: 750 }}
@@ -840,7 +840,7 @@ function PayeeCell({
                   }
                   style={{
                     ...styles.tooltip,
-                    borderRadius: '0px 5px 5px 0px',
+                    borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
                   }}
                   placement="bottom"
                   triggerProps={{ delay: 750 }}

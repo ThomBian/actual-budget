@@ -12,6 +12,7 @@ import { Menu } from '@actual-app/components/menu';
 import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { useGlobalPref } from '#hooks/useGlobalPref';
@@ -69,7 +70,7 @@ export const BudgetTotals = memo(function BudgetTotals({
         boxShadow: styles.cardShadow,
         marginLeft: 5,
         marginRight: 5 + getScrollbarWidth(),
-        borderRadius: '4px 4px 0 0',
+        borderRadius: `${radius.xs}px ${radius.xs}px 0 0`,
         borderBottom: '1px solid ' + theme.tableBorder,
         '& .hover-visible': {
           opacity: 0,

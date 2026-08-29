@@ -105,10 +105,10 @@ const calendarStyles: CSSProperties = {
       color: theme.buttonPrimaryText,
     },
     '&[data-selection-start]': {
-      borderRadius: '4px 0 0 4px',
+      borderRadius: `${radius.xs}px 0 0 ${radius.xs}px`,
     },
     '&[data-selection-end]': {
-      borderRadius: '0 4px 4px 0',
+      borderRadius: `0 ${radius.xs}px ${radius.xs}px 0`,
     },
     '&[data-disabled]': {
       opacity: 0.4,
