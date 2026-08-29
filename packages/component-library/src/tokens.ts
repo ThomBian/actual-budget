@@ -39,13 +39,13 @@ export const tokens: BreakpointsPx = Object.entries(
 export const radius = {
   none: 0,
   /** Hairline insets and small indicators */
-  xxs: 2,
+  xxs: 3,
   /** Dense surfaces: table cells, inline chips, compact controls */
-  xs: 4,
+  xs: 6,
   /** Inputs, buttons, pills */
-  sm: 6,
+  sm: 8,
   /** Cards, containers, tooltips */
-  md: 8,
+  md: 10,
   /** Floating surfaces: menus, popovers, modals */
   lg: 12,
   /** Large hero surfaces */

@@ -19,7 +19,7 @@ import {
 } from '@actual-app/components/icons/v2';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
-import { radius } from '@actual-app/components/tokens';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css } from '@emotion/css';
 import { Command } from 'cmdk';
@@ -285,7 +285,7 @@ export function CommandBar() {
         border: '1px solid var(--color-modalBorder)',
         color: 'var(--color-pageText)',
         borderRadius: `${radius.md}px`,
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+        boxShadow: shadows.lg,
         overflow: 'hidden',
         zIndex: 3001,
       })}

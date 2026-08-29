@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Input } from '@actual-app/components/input';
 import { theme } from '@actual-app/components/theme';
-import { radius } from '@actual-app/components/tokens';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import type { CleanupGroup } from '#hooks/useCleanupGroups';
@@ -111,7 +111,7 @@ export function CleanupGroupPicker({
             backgroundColor: theme.menuBackground,
             border: `1px solid ${theme.menuBorder}`,
             borderRadius: radius.sm,
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+            boxShadow: shadows.lg,
             zIndex: 10,
             maxHeight: 240,
             overflowY: 'auto',

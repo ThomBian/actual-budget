@@ -45,7 +45,7 @@ import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
-import { radius } from '@actual-app/components/tokens';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
@@ -2158,7 +2158,7 @@ const Transaction = memo(function Transaction({
               backgroundColor: theme.tableBackground,
               borderRadius: radius.xs,
               padding: '8px 16px',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+              boxShadow: shadows.lg,
               width: '50vw',
               minWidth: 500,
               flexDirection: 'row',
@@ -2976,7 +2976,7 @@ function TransactionTableInner({
               right: 0,
               height: 20,
               backgroundColor: theme.errorText,
-              boxShadow: '0 0 6px rgba(0, 0, 0, .20)',
+              boxShadow: shadows.md,
             }}
           />
         )}

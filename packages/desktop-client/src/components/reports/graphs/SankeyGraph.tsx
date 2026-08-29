@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
 
 import { theme } from '@actual-app/components/theme';
-import { radius } from '@actual-app/components/tokens';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { css, keyframes } from '@emotion/css';
 import { t } from 'i18next';
 import {
@@ -295,7 +295,7 @@ export function SankeyGraph({
                           zIndex: 1000,
                           pointerEvents: 'none',
                           borderRadius: radius.xxs,
-                          boxShadow: '0 1px 6px rgba(0, 0, 0, .20)',
+                          boxShadow: shadows.md,
                           backgroundColor: theme.menuBackground,
                           color: theme.menuItemText,
                           padding: 10,

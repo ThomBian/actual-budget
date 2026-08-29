@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AlignedText } from '@actual-app/components/aligned-text';
 import { theme } from '@actual-app/components/theme';
-import { radius } from '@actual-app/components/tokens';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { css } from '@emotion/css';
 import * as d from 'date-fns';
 import {
@@ -66,7 +66,7 @@ function CustomTooltip({
       className={css({
         pointerEvents: 'none',
         borderRadius: radius.xxs,
-        boxShadow: '0 1px 6px rgba(0, 0, 0, .20)',
+        boxShadow: shadows.md,
         backgroundColor: theme.menuBackground,
         color: theme.menuItemText,
         padding: 10,

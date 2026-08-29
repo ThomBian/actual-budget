@@ -20,7 +20,7 @@ export const baseInputStyle = {
   color: theme.formInputText,
   margin: 0,
   padding: 5,
-  borderRadius: radius.xs,
+  borderRadius: radius.sm,
   border: '1px solid ' + theme.formInputBorder,
 };
 

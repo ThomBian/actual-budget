@@ -4,7 +4,7 @@ import type { CSSProperties } from 'react';
 import { css } from '@emotion/css';
 
 import { theme } from './theme';
-import { radius } from './tokens';
+import { radius, shadows } from './tokens';
 import { View } from './View';
 
 type ToggleProps = {
@@ -76,7 +76,7 @@ export const Toggle = ({
               height: '12px',
               borderRadius: `${radius.pill}px`,
               transition: '0.2s',
-              boxShadow: '0 0 2px 0 rgba(10, 10, 10, 0.29)',
+              boxShadow: shadows.xs,
               backgroundColor: isDisabled
                 ? theme.checkboxToggleDisabled
                 : '#fff',

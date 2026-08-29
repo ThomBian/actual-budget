@@ -153,7 +153,7 @@ export function Menu<const NameType = string>({
       className={className}
       style={{
         outline: 'none',
-        borderRadius: radius.xs,
+        borderRadius: radius.lg,
         overflow: 'hidden',
         ...style,
       }}

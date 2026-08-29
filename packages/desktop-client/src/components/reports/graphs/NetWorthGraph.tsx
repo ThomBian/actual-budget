@@ -6,7 +6,7 @@ import { AlignedText } from '@actual-app/components/aligned-text';
 import { useResponsive } from '@actual-app/components/hooks/useResponsive';
 import type { CSSProperties } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
-import { radius } from '@actual-app/components/tokens';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { css } from '@emotion/css';
 import { getDay, parse } from 'date-fns';
 import {
@@ -57,7 +57,7 @@ function TrendTooltip({ active, payload, style }: TrendTooltipProps) {
             zIndex: 1000,
             pointerEvents: 'none',
             borderRadius: radius.xxs,
-            boxShadow: '0 1px 6px rgba(0, 0, 0, .20)',
+            boxShadow: shadows.md,
             backgroundColor: theme.menuBackground,
             color: theme.menuItemText,
             padding: 10,
@@ -136,7 +136,7 @@ function StackedTooltip({
             zIndex: 1000,
             pointerEvents: 'auto',
             borderRadius: radius.xxs,
-            boxShadow: '0 1px 6px rgba(0, 0, 0, .20)',
+            boxShadow: shadows.md,
             backgroundColor: theme.menuBackground,
             color: theme.menuItemText,
             padding: 10,

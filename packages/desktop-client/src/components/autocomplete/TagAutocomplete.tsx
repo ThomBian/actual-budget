@@ -12,7 +12,7 @@ import { SvgAdd } from '@actual-app/components/icons/v0';
 import { Input } from '@actual-app/components/input';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
-import { radius } from '@actual-app/components/tokens';
+import { radius, shadows } from '@actual-app/components/tokens';
 import { send } from '@actual-app/core/platform/client/connection';
 import { css } from '@emotion/css';
 
@@ -179,7 +179,7 @@ export function TagAutocomplete({
         className={css(styles.darkScrollbar, {
           background: theme.menuAutoCompleteBackground,
           borderRadius: radius.sm,
-          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          boxShadow: shadows.md,
           width: inputRef.current?.offsetWidth ?? 100,
         })}
         offset={1}
