@@ -7,6 +7,7 @@ import { animated, config, useSpring } from 'react-spring';
 import { Button } from '@actual-app/components/button';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import type { WithRequired } from '@actual-app/core/types/util';
 import { useDrag } from '@use-gesture/react';
 
@@ -120,7 +121,7 @@ export function ActionableGridListItem<T extends object>({
             minWidth: '100%',
             padding: 16,
             textAlign: 'left',
-            borderRadius: 0,
+            borderRadius: radius.none,
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
           }}

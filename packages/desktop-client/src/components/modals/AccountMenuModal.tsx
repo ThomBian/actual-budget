@@ -13,6 +13,7 @@ import { Menu } from '@actual-app/components/menu';
 import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { AccountEntity } from '@actual-app/core/types/models';
 
@@ -165,7 +166,7 @@ export function AccountMenuModal({
                 editable={false}
                 focused={false}
                 getStyle={() => ({
-                  borderRadius: 6,
+                  borderRadius: radius.sm,
                   ...((!originalNotes || originalNotes.length === 0) && {
                     justifySelf: 'center',
                     alignSelf: 'center',

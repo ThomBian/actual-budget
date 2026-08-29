@@ -16,6 +16,7 @@ import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { TextOneLine } from '@actual-app/components/text-one-line';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { integerToCurrency } from '@actual-app/core/shared/util';
 import type {
@@ -357,7 +358,7 @@ function CategoryItem({
   const narrowStyle = isNarrowWidth
     ? {
         ...styles.mobileMenuItem,
-        borderRadius: 0,
+        borderRadius: radius.none,
         borderTop: `1px solid ${theme.pillBorder}`,
       }
     : {};

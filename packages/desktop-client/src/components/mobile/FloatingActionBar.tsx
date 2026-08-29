@@ -1,6 +1,7 @@
 import type { CSSProperties, PropsWithChildren } from 'react';
 
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 type FloatingActionBarProps = PropsWithChildren & {
@@ -19,7 +20,7 @@ export function FloatingActionBar({ style, children }: FloatingActionBarProps) {
         width: '95vw',
         height: 60,
         zIndex: 100,
-        borderRadius: 8,
+        borderRadius: radius.md,
         border: `1px solid ${theme.floatingActionBarBorder}`,
         ...style,
       }}

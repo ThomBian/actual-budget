@@ -3,6 +3,7 @@ import { DropIndicator, GridList, useDragAndDrop } from 'react-aria-components';
 import { useTranslation } from 'react-i18next';
 
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import type {
   CategoryEntity,
   CategoryGroupEntity,
@@ -61,7 +62,7 @@ export function ExpenseGroupList({
               height: 4,
               backgroundColor: theme.tableBorderSeparator,
               opacity: 1,
-              borderRadius: 4,
+              borderRadius: radius.xs,
             },
           })}
         />

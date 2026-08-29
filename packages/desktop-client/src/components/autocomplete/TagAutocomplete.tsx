@@ -12,6 +12,7 @@ import { SvgAdd } from '@actual-app/components/icons/v0';
 import { Input } from '@actual-app/components/input';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { send } from '@actual-app/core/platform/client/connection';
 import { css } from '@emotion/css';
 
@@ -177,7 +178,7 @@ export function TagAutocomplete({
         placement="bottom start"
         className={css(styles.darkScrollbar, {
           background: theme.menuAutoCompleteBackground,
-          borderRadius: 6,
+          borderRadius: radius.sm,
           boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
           width: inputRef.current?.offsetWidth ?? 100,
         })}
@@ -194,7 +195,7 @@ export function TagAutocomplete({
           dependencies={[highlightedId]}
           onPointerDown={e => e.preventDefault()}
           style={{
-            borderRadius: 4,
+            borderRadius: radius.xs,
             maxHeight: '150px',
             overflowY: 'auto',
           }}

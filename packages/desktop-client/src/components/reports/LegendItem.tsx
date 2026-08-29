@@ -2,6 +2,7 @@ import React from 'react';
 import type { CSSProperties } from 'react';
 
 import { Text } from '@actual-app/components/text';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 export function LegendItem({
@@ -25,7 +26,7 @@ export function LegendItem({
       <View
         style={{
           marginRight: 5,
-          borderRadius: 1000,
+          borderRadius: radius.pill,
           width: 14,
           height: 14,
           backgroundColor: color,

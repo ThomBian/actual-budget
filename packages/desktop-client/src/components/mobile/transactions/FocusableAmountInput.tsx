@@ -11,6 +11,7 @@ import { Button } from '@actual-app/components/button';
 import type { CSSProperties as EmotionCSSProperties } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import {
   amountToCurrency,
@@ -146,7 +147,7 @@ const AmountInput = memo(function AmountInput({
         justifyContent: 'center',
         borderWidth: 1,
         borderColor: theme.pillBorderSelected,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         padding: 5,
         backgroundColor: theme.tableBackground,
         maxWidth: 'calc(100% - 40px)',

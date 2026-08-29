@@ -10,6 +10,7 @@ import {
 import { SvgCalendar } from '@actual-app/components/icons/v2';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import * as monthUtils from '@actual-app/core/shared/months';
 
@@ -160,7 +161,7 @@ export const MonthPicker = ({
                 textAlign: 'center',
                 userSelect: 'none',
                 cursor: 'default',
-                borderRadius: 2,
+                borderRadius: radius.xxs,
                 border: 'none',
                 ...(!isMonthBudgeted && {
                   textDecoration: 'line-through',
@@ -172,7 +173,7 @@ export const MonthPicker = ({
                   color: theme.buttonPrimaryText,
                 }),
                 ...((hovered || selected) && {
-                  borderRadius: 0,
+                  borderRadius: radius.none,
                   cursor: 'pointer',
                 }),
                 ...(hoverId !== null &&
@@ -201,13 +202,13 @@ export const MonthPicker = ({
                   }),
                 ...((idx === firstSelectedIndex ||
                   (idx === hoverId && !selected)) && {
-                  borderTopLeftRadius: 2,
-                  borderBottomLeftRadius: 2,
+                  borderTopLeftRadius: radius.xxs,
+                  borderBottomLeftRadius: radius.xxs,
                 }),
                 ...((idx === lastSelectedIndex ||
                   (idx === lastHoverId && !selected)) && {
-                  borderTopRightRadius: 2,
-                  borderBottomRightRadius: 2,
+                  borderTopRightRadius: radius.xxs,
+                  borderBottomRightRadius: radius.xxs,
                 }),
                 ...(current && { fontWeight: 'bold' }),
               }}

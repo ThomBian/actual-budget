@@ -7,6 +7,7 @@ import { css, cx } from '@emotion/css';
 import { AnimatedLoading } from './icons/AnimatedLoading';
 import { styles } from './styles';
 import { theme } from './theme';
+import { radius } from './tokens';
 import { View } from './View';
 
 const backgroundColor: {
@@ -148,7 +149,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           margin: 0,
           overflow: 'hidden',
           display: 'flex',
-          borderRadius: 4,
+          borderRadius: radius.xs,
           backgroundColor: backgroundColor[variantWithDisabled],
           border: _getBorder(variant, variantWithDisabled),
           color: textColor[variantWithDisabled],

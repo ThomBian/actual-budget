@@ -7,6 +7,7 @@ import { Input } from '@actual-app/components/input';
 import { SpaceBetween } from '@actual-app/components/space-between';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import type {
@@ -199,7 +200,7 @@ function ScopeCard({
       style={{
         padding: 12,
         backgroundColor: theme.tableBackground,
-        borderRadius: 6,
+        borderRadius: radius.sm,
         border: `1px solid ${theme.tableBorder}`,
         gap: 8,
       }}

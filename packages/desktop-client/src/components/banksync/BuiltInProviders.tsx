@@ -12,6 +12,7 @@ import { Paragraph } from '@actual-app/components/paragraph';
 import { Popover } from '@actual-app/components/popover';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { Warning } from '#components/alerts';
@@ -85,7 +86,7 @@ export function BuiltInProviders({
         <View
           style={{
             border: `1px solid ${theme.tableBorder}`,
-            borderRadius: 8,
+            borderRadius: radius.md,
             padding: 16,
             backgroundColor: theme.tableBackground,
           }}
@@ -121,7 +122,7 @@ export function BuiltInProviders({
               data-testid={`bank-sync-provider-${provider.id}`}
               style={{
                 border: `1px solid ${theme.tableBorder}`,
-                borderRadius: 8,
+                borderRadius: radius.md,
                 padding: 16,
                 backgroundColor: theme.tableBackground,
                 gap: 16,
@@ -156,7 +157,7 @@ export function BuiltInProviders({
                       <Text
                         style={{
                           alignSelf: 'flex-start',
-                          borderRadius: 999,
+                          borderRadius: radius.pill,
                           backgroundColor: theme.buttonPrimaryBackground,
                           color: theme.buttonPrimaryText,
                           fontSize: 12,

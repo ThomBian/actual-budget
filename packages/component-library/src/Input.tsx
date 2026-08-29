@@ -12,6 +12,7 @@ import { css, cx } from '@emotion/css';
 import { useResponsive } from './hooks/useResponsive';
 import { styles } from './styles';
 import { theme } from './theme';
+import { radius } from './tokens';
 
 export const baseInputStyle = {
   outline: 0,
@@ -19,7 +20,7 @@ export const baseInputStyle = {
   color: theme.formInputText,
   margin: 0,
   padding: 5,
-  borderRadius: 4,
+  borderRadius: radius.xs,
   border: '1px solid ' + theme.formInputBorder,
 };
 

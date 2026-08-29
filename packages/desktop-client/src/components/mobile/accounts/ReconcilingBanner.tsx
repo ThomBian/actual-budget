@@ -6,6 +6,7 @@ import { SvgCheckCircle1 } from '@actual-app/components/icons/v2';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { AccountEntity } from '@actual-app/core/types/models';
 import type { TransObjectLiteral } from '@actual-app/core/types/util';
@@ -64,7 +65,7 @@ export function ReconcilingBanner({
         display: 'grid',
         backgroundColor: theme.tableBackground,
         ...styles.shadow,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         margin: '10px 10px 0 10px',
         padding: 10,
       }}

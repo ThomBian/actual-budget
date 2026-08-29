@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { displayTemplateTypes } from '#components/budget/goals/constants';
@@ -59,7 +60,7 @@ export function TypePicker({ active, disabledTypes, onPick }: TypePickerProps) {
             }}
             style={{
               padding: '10px 10px 8px',
-              borderRadius: 6,
+              borderRadius: radius.sm,
               backgroundColor: isActive
                 ? theme.upcomingBackground
                 : theme.cardBackground,

@@ -24,6 +24,7 @@ import { Popover } from '@actual-app/components/popover';
 import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import { tsToRelativeTime } from '@actual-app/core/shared/util';
@@ -601,7 +602,7 @@ function AccountSyncSidebar({
         marginRight: '4px',
         width: 8,
         height: 8,
-        borderRadius: 8,
+        borderRadius: radius.md,
       }}
     />
   );

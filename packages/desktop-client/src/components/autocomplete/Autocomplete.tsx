@@ -14,6 +14,7 @@ import { Input } from '@actual-app/components/input';
 import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View, viewStyles } from '@actual-app/components/view';
 import { getNormalisedString } from '@actual-app/core/shared/normalisation';
 import { css, cx } from '@emotion/css';
@@ -685,7 +686,7 @@ function MultiItem({ name, onRemove }: MultiItemProps) {
         backgroundColor: theme.pillBackgroundSelected,
         padding: '2px 4px',
         margin: '2px',
-        borderRadius: 4,
+        borderRadius: radius.xs,
       }}
     >
       <span
@@ -781,7 +782,7 @@ function MultiAutocomplete<T extends AutocompleteItem>({
             flexDirection: 'row',
             alignItems: 'center',
             backgroundColor: theme.tableBackground,
-            borderRadius: 4,
+            borderRadius: radius.xs,
             border: '1px solid ' + theme.formInputBorder,
             ...(focused && {
               border: '1px solid ' + theme.formInputBorderSelected,

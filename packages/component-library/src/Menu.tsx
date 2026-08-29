@@ -12,6 +12,7 @@ import { Button } from './Button';
 import { Text } from './Text';
 import { theme } from './theme';
 import { Toggle } from './Toggle';
+import { radius } from './tokens';
 import { View } from './View';
 
 const MenuLine: unique symbol = Symbol('menu-line');
@@ -150,7 +151,12 @@ export function Menu<const NameType = string>({
     <View
       role="menu"
       className={className}
-      style={{ outline: 'none', borderRadius: 4, overflow: 'hidden', ...style }}
+      style={{
+        outline: 'none',
+        borderRadius: radius.xs,
+        overflow: 'hidden',
+        ...style,
+      }}
       tabIndex={0}
       onKeyDown={onKeyDown}
       innerRef={elRef}

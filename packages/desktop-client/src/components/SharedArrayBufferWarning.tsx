@@ -3,6 +3,7 @@ import { Trans } from 'react-i18next';
 import { SvgAlertTriangle } from '@actual-app/components/icons/v2';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { isElectron } from '@actual-app/core/shared/environment';
 import { css } from '@emotion/css';
@@ -41,7 +42,7 @@ export function SharedArrayBufferWarning() {
           color: `${theme.warningText} !important`,
           textDecoration: 'none',
           padding: '4px 6px',
-          borderRadius: 4,
+          borderRadius: radius.xs,
           display: 'flex',
           alignItems: 'center',
           ':hover': { backgroundColor: theme.buttonBareBackgroundHover },

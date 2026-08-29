@@ -3,6 +3,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import type { CSSProperties } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { css } from '@emotion/css';
 import {
   Area,
@@ -39,7 +40,7 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
         className={css({
           zIndex: 1000,
           pointerEvents: 'none',
-          borderRadius: 2,
+          borderRadius: radius.xxs,
           boxShadow: '0 1px 6px rgba(0, 0, 0, .20)',
           backgroundColor: theme.menuBackground,
           color: theme.menuItemText,

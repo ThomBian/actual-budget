@@ -6,7 +6,7 @@ import { useLocation } from 'react-router';
 import type { CSSProperties } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
-import { tokens } from '@actual-app/components/tokens';
+import { radius, tokens } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css } from '@emotion/css';
 
@@ -27,7 +27,7 @@ export const Setting = ({ primaryAction, style, children }: SettingProps) => {
           alignSelf: 'flex-start',
           alignItems: 'flex-start',
           padding: 15,
-          borderRadius: 4,
+          borderRadius: radius.xs,
           border: '1px solid ' + theme.pillBorderDark,
           width: '100%',
         },

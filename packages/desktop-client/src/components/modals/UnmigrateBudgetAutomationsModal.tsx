@@ -4,6 +4,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { Button } from '@actual-app/components/button';
 import { AnimatedLoading } from '@actual-app/components/icons/AnimatedLoading';
 import { SpaceBetween } from '@actual-app/components/space-between';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
 import type { CleanupTemplate } from '@actual-app/core/types/models/cleanup-templates';
@@ -198,7 +199,7 @@ export function UnmigrateBudgetAutomationsModal({
                 focused
                 getStyle={() => ({
                   flex: 1,
-                  borderRadius: 6,
+                  borderRadius: radius.sm,
                   display: 'flex',
                   flexDirection: 'column',
                   resize: 'none',

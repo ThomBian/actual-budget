@@ -11,6 +11,7 @@ import { Popover } from '@actual-app/components/popover';
 import { Select } from '@actual-app/components/select';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
 import * as monthUtils from '@actual-app/core/shared/months';
@@ -142,7 +143,7 @@ export function QueryManager({ queries, onQueriesChange }: QueryManagerProps) {
           style={{
             padding: 16,
             border: `1px solid ${theme.tableBorder}`,
-            borderRadius: 4,
+            borderRadius: radius.xs,
             marginBottom: 16,
             backgroundColor: theme.tableBackground,
           }}
@@ -173,7 +174,7 @@ export function QueryManager({ queries, onQueriesChange }: QueryManagerProps) {
             textAlign: 'center',
             color: theme.pageTextSubdued,
             border: `1px dashed ${theme.tableBorder}`,
-            borderRadius: 4,
+            borderRadius: radius.xs,
             maxWidth: 400,
           }}
         >
@@ -525,7 +526,7 @@ function QueryItem({
         padding: 16,
         marginBottom: 16,
         border: `1px solid ${theme.tableBorder}`,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         backgroundColor: theme.tableBackground,
         display: 'block',
         flex: 1,
@@ -618,7 +619,7 @@ function QueryItem({
                         height: 200,
                         padding: 8,
                         border: `1px solid ${theme.formInputBorder}`,
-                        borderRadius: 4,
+                        borderRadius: radius.xs,
                         backgroundColor: theme.tableBackground,
                         color: theme.formInputText,
                         fontFamily: 'monospace',

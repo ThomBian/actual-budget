@@ -21,6 +21,7 @@ import { Popover } from '@actual-app/components/popover';
 import { styles } from '@actual-app/components/styles';
 import type { CSSProperties } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css } from '@emotion/css';
 
@@ -125,7 +126,7 @@ export function CategoryGroupMenuModal({
     ...styles.mobileMenuItem,
     height: styles.mobileMinHeight,
     color: theme.menuItemText,
-    borderRadius: 0,
+    borderRadius: radius.none,
     borderTop: `1px solid ${theme.pillBorder}`,
   };
 
@@ -179,7 +180,7 @@ export function CategoryGroupMenuModal({
                 focused={false}
                 getStyle={() => ({
                   ...styles.mediumText,
-                  borderRadius: 6,
+                  borderRadius: radius.sm,
                   ...((!notes || notes.length === 0) && {
                     justifySelf: 'center',
                     alignSelf: 'center',

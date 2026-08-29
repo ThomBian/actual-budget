@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 const FormulaEditor = lazy(() =>
@@ -31,7 +32,7 @@ export function FormulaActionEditor({
       style={{
         flex: 1,
         border: `1px solid ${theme.formInputBorder}`,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         overflow: 'visible',
         backgroundColor: disabled
           ? theme.formInputBackgroundSelection

@@ -6,6 +6,7 @@ import { Button } from '@actual-app/components/button';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { Modal, ModalCloseButton, ModalHeader } from '#components/common/Modal';
@@ -46,7 +47,7 @@ export function ImportModal() {
   const itemStyle = {
     padding: 10,
     border: '1px solid ' + theme.tableBorder,
-    borderRadius: 6,
+    borderRadius: radius.sm,
     marginBottom: 10,
     display: 'block',
   };

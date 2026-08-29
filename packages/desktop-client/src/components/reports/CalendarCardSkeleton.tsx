@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css, keyframes } from '@emotion/css';
 
@@ -12,7 +13,7 @@ const pulse = keyframes({
 });
 
 const cellBase = {
-  borderRadius: 4,
+  borderRadius: radius.xs,
   backgroundColor: theme.calendarCellBackground,
 };
 

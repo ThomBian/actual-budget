@@ -8,6 +8,7 @@ import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { RuleEntity } from '@actual-app/core/types/models';
 
@@ -110,7 +111,7 @@ export const RuleRow = memo(
                 margin: 5,
                 backgroundColor: theme.pillBackgroundSelected,
                 color: theme.pillTextSelected,
-                borderRadius: 4,
+                borderRadius: radius.xs,
                 padding: '3px 5px',
               }}
             >
@@ -162,7 +163,7 @@ export const RuleRow = memo(
                         padding: '5px',
                         borderColor: theme.tableBorder,
                         borderWidth: '1px',
-                        borderRadius: '5px',
+                        borderRadius: `${radius.xs}px`,
                       }}
                     >
                       <Text

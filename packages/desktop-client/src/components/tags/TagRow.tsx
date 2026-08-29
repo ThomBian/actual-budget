@@ -5,6 +5,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { SvgArrowThinRight } from '@actual-app/components/icons/v1';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import type { TagEntity } from '@actual-app/core/types/models';
 
 import {
@@ -199,7 +200,7 @@ export const TagRow = memo(
         <Cell width="auto" style={{ padding: '0 10px' }} plain>
           <CellButton
             style={{
-              borderRadius: 4,
+              borderRadius: radius.xs,
               padding: '3px 6px',
               backgroundColor: theme.noticeBackground,
               border: '1px solid ' + theme.noticeBackground,

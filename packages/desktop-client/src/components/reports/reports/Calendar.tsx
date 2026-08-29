@@ -14,6 +14,7 @@ import {
 } from '@actual-app/components/icons/v1';
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
 import * as monthUtils from '@actual-app/core/shared/months';
@@ -810,7 +811,7 @@ function CalendarWithHeader({
         minWidth: '300px',
         maxWidth: '300px',
         padding: 10,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         backgroundColor: theme.tableBackground,
       }}
       onClick={() =>
@@ -970,7 +971,7 @@ function CalendarCardHeader({
       <View
         style={{
           width: '200px',
-          borderRadius: 4,
+          borderRadius: radius.xs,
           backgroundColor: theme.tableBackground,
           padding: 10,
         }}

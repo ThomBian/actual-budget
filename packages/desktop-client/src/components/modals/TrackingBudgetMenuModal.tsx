@@ -11,6 +11,7 @@ import { SvgNotesPaper } from '@actual-app/components/icons/v2';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { amountToInteger, integerToAmount } from '@actual-app/core/shared/util';
 import { t } from 'i18next';
@@ -49,7 +50,7 @@ export function TrackingBudgetMenuModal({
   const defaultMenuItemStyle: CSSProperties = {
     ...styles.mobileMenuItem,
     color: theme.menuItemText,
-    borderRadius: 0,
+    borderRadius: radius.none,
     borderTop: `1px solid ${theme.pillBorder}`,
   };
 
@@ -137,7 +138,7 @@ export function TrackingBudgetMenuModal({
               editable={false}
               focused={false}
               getStyle={() => ({
-                borderRadius: 6,
+                borderRadius: radius.sm,
                 ...(originalNotes.length === 0 && {
                   justifySelf: 'center',
                   alignSelf: 'center',

@@ -18,6 +18,7 @@ import { Popover } from '@actual-app/components/popover';
 import { SpaceBetween } from '@actual-app/components/space-between';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
 import * as monthUtils from '@actual-app/core/shared/months';
@@ -996,7 +997,7 @@ function SankeyInner({ widget }: SankeyInnerProps) {
                       marginTop: 10,
                       padding: '8px 12px',
                       backgroundColor: theme.warningBackground,
-                      borderRadius: 4,
+                      borderRadius: radius.xs,
                       color: theme.warningText,
                     }}
                   >

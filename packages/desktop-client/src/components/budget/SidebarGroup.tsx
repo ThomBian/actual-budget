@@ -9,6 +9,7 @@ import { SvgCheveronDown } from '@actual-app/components/icons/v1';
 import { Menu } from '@actual-app/components/menu';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import type {
@@ -214,7 +215,7 @@ export function SidebarGroup({
         ...(dragPreview && {
           paddingLeft: 10,
           zIndex: 10000,
-          borderRadius: 6,
+          borderRadius: radius.sm,
           overflow: 'hidden',
         }),
       }}

@@ -38,11 +38,15 @@ export const tokens: BreakpointsPx = Object.entries(
 // deliberately short so nested surfaces stay visually related.
 export const radius = {
   none: 0,
-  /** Dense controls: pills, inputs, table cells, small buttons */
+  /** Hairline insets and small indicators */
+  xxs: 2,
+  /** Dense surfaces: table cells, inline chips, compact controls */
+  xs: 4,
+  /** Inputs, buttons, pills */
   sm: 6,
-  /** Cards, table containers, standard buttons */
+  /** Cards, containers, tooltips */
   md: 8,
-  /** Floating surfaces: menus, popovers, tooltips, modals */
+  /** Floating surfaces: menus, popovers, modals */
   lg: 12,
   /** Large hero surfaces */
   xl: 16,

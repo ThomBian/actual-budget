@@ -8,6 +8,7 @@ import { InitialFocus } from '@actual-app/components/initial-focus';
 import { styles as baseStyles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import * as Platform from '@actual-app/core/shared/platform';
 
@@ -39,7 +40,7 @@ function KeyIcon({ shortcut, style }: KeyIconProps) {
         backgroundColor: '#fff',
         color: '#000',
         border: '1px solid #000',
-        borderRadius: 8,
+        borderRadius: radius.md,
         minWidth: 30,
         minHeight: 30,
         filter: 'drop-shadow(1px 1px)',

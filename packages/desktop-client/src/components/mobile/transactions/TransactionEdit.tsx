@@ -32,6 +32,7 @@ import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
 import { Toggle } from '@actual-app/components/toggle';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
 import { DEFAULT_MAX_DISTANCE_METERS } from '@actual-app/core/shared/constants';
@@ -469,7 +470,7 @@ const ChildTransactionEdit = forwardRef<
               ? theme.tableBorderSelected
               : theme.tableBorder,
           borderWidth: '1px',
-          borderRadius: '5px',
+          borderRadius: `${radius.xs}px`,
           padding: '5px',
           margin: '10px',
         }}
@@ -1267,7 +1268,7 @@ const TransactionEditInner = memo<TransactionEditInnerProps>(
                       color: theme.buttonNormalText,
                       fontSize: '11px',
                       padding: '4px 8px',
-                      borderRadius: 3,
+                      borderRadius: radius.xxs,
                       height: 'auto',
                       minHeight: 'auto',
                     }}
@@ -1289,7 +1290,7 @@ const TransactionEditInner = memo<TransactionEditInnerProps>(
                       color: theme.buttonNormalText,
                       fontSize: '11px',
                       padding: '4px 8px',
-                      borderRadius: 3,
+                      borderRadius: radius.xxs,
                       height: 'auto',
                       minHeight: 'auto',
                     }}
@@ -1311,7 +1312,7 @@ const TransactionEditInner = memo<TransactionEditInnerProps>(
                       color: theme.buttonNormalText,
                       fontSize: '11px',
                       padding: '4px 8px',
-                      borderRadius: 3,
+                      borderRadius: radius.xxs,
                       height: 'auto',
                       minHeight: 'auto',
                     }}
@@ -1662,7 +1663,7 @@ function NoteTagAutocomplete({
       style={{
         width: '100%',
         padding: '4px 8px 4px 8px',
-        borderRadius: 30,
+        borderRadius: radius.pill,
         overflowX: 'auto',
         height: filteredTags.length || showNewTag ? 30 : 0,
         transitionProperty: 'height',
@@ -1702,7 +1703,7 @@ function NoteTagAutocomplete({
             type="button"
             style={{
               padding: '1px 1px 1px 9px',
-              borderRadius: 12,
+              borderRadius: radius.lg,
               borderWidth: 0,
               backgroundColor: theme.noticeBackground,
               color: theme.noticeTextDark,

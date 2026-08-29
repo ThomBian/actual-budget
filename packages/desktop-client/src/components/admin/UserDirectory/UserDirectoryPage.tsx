@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { Button } from '@actual-app/components/button';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { Page } from '#components/Page';
@@ -21,7 +22,7 @@ export function UserDirectoryPage({
     <Page
       header={t('User Directory')}
       style={{
-        borderRadius: '5px',
+        borderRadius: `${radius.xs}px`,
         marginBottom: '25px',
       }}
     >

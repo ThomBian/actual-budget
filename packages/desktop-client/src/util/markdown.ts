@@ -2,6 +2,7 @@
 
 import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { css } from '@emotion/css';
 import { newlineToBreak } from 'mdast-util-newline-to-break';
 
@@ -98,7 +99,7 @@ export const markdownBaseStyles = css({
     '& code': {
       background: 'inherit',
       padding: 0,
-      borderRadius: 0,
+      borderRadius: radius.none,
     },
   },
   '& table, & th, & td': {

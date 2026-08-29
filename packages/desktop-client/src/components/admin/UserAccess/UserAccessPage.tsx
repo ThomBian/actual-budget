@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { radius } from '@actual-app/components/tokens';
+
 import { Page } from '#components/Page';
 
 import { UserAccess } from './UserAccess';
@@ -12,7 +14,7 @@ export function UserAccessPage() {
     <Page
       header={t('User Access')}
       style={{
-        borderRadius: '5px',
+        borderRadius: `${radius.xs}px`,
         marginBottom: '25px',
       }}
     >

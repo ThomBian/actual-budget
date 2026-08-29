@@ -6,6 +6,7 @@ import { SvgPencil1 } from '@actual-app/components/icons/v2';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { loadAllFiles } from '#budgetfiles/budgetfilesSlice';
@@ -50,7 +51,7 @@ function FileLocationSettings() {
         alignSelf: 'flex-start',
         alignItems: 'flex-start',
         padding: 15,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         border: '1px solid ' + theme.pillBorderDark,
         width: '100%',
       }}
@@ -69,7 +70,7 @@ function FileLocationSettings() {
           style={{
             backgroundColor: theme.pageBackground,
             padding: '5px 10px',
-            borderRadius: 4,
+            borderRadius: radius.xs,
             overflow: 'auto',
             whiteSpace: 'nowrap',
             width: '100%',
@@ -110,7 +111,7 @@ function SelfSignedCertLocationSettings() {
         alignSelf: 'flex-start',
         alignItems: 'flex-start',
         padding: 15,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         border: '1px solid ' + theme.pillBorderDark,
         width: '100%',
       }}
@@ -129,7 +130,7 @@ function SelfSignedCertLocationSettings() {
           style={{
             backgroundColor: theme.pageBackground,
             padding: '5px 10px',
-            borderRadius: 4,
+            borderRadius: radius.xs,
             overflow: 'auto',
             whiteSpace: 'nowrap',
             width: '100%',

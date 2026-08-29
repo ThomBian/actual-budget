@@ -24,7 +24,7 @@ import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { TextOneLine } from '@actual-app/components/text-one-line';
 import { theme } from '@actual-app/components/theme';
-import { tokens } from '@actual-app/components/tokens';
+import { radius, tokens } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css } from '@emotion/css';
 import { AutoTextSize } from 'auto-text-size';
@@ -132,7 +132,7 @@ export const Modal = ({
                     minWidth: '90vw',
                     maxHeight: 'calc(var(--visual-viewport-height) * 0.9)',
                     minHeight: 0,
-                    borderRadius: 6,
+                    borderRadius: radius.sm,
                     //border: '1px solid ' + theme.modalBorder,
                     color: theme.pageText,
                     backgroundColor: theme.modalBackground,

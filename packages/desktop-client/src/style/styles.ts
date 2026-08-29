@@ -1,5 +1,6 @@
 // @ts-strict-ignore
 import { styles } from '@actual-app/components/styles';
+import { radius } from '@actual-app/components/tokens';
 import * as Platform from '@actual-app/core/shared/platform';
 
 let hiddenScrollbars = false;
@@ -16,7 +17,7 @@ function onScrollbarChange() {
     },
     '::-webkit-scrollbar-thumb': {
       width: 7,
-      borderRadius: 30,
+      borderRadius: radius.pill,
       backgroundClip: 'padding-box',
       border: '2px solid rgba(0, 0, 0, 0)',
       backgroundColor: '#d0d0d0',
@@ -30,7 +31,7 @@ function onScrollbarChange() {
     },
     '& ::-webkit-scrollbar-thumb': {
       width: 7,
-      borderRadius: 30,
+      borderRadius: radius.pill,
       backgroundClip: 'padding-box',
       border: '2px solid rgba(0, 0, 0, 0)',
     },
@@ -46,7 +47,7 @@ function onScrollbarChange() {
     },
     '& ::-webkit-scrollbar-thumb:vertical': {
       width: 7,
-      borderRadius: 30,
+      borderRadius: radius.pill,
       backgroundClip: 'padding-box',
       backgroundColor: 'rgba(200, 200, 200, .5)',
       border: '2px solid rgba(0, 0, 0, 0)',

@@ -16,6 +16,7 @@ import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { TextOneLine } from '@actual-app/components/text-one-line';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { isPreviewId } from '@actual-app/core/shared/transactions';
 import { integerToCurrency } from '@actual-app/core/shared/util';
@@ -190,7 +191,7 @@ export function TransactionListItem({
             userSelect: 'none',
             height: '100%',
             flex: 1,
-            borderRadius: 0,
+            borderRadius: radius.none,
             borderWidth: 0,
             ...(isReconciling && { paddingRight: 0 }),
             ...(isPreview
@@ -371,7 +372,7 @@ export function TransactionListItem({
               width: 32,
               height: '100%',
               flexShrink: 0,
-              borderRadius: 0,
+              borderRadius: radius.none,
             }}
             onPress={() => onToggleCleared?.(transaction)}
           >

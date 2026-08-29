@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css, keyframes } from '@emotion/css';
 
@@ -15,7 +16,7 @@ const barBase = {
   width: '55%',
   maxWidth: 160,
   height: 32,
-  borderRadius: 6,
+  borderRadius: radius.sm,
   backgroundColor: theme.pageText,
 };
 

@@ -12,6 +12,7 @@ import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import { css } from '@emotion/css';
 
@@ -227,7 +228,7 @@ function Notification({
           position: 'relative',
           padding: '14px 14px',
           paddingRight: 40,
-          borderRadius: 8,
+          borderRadius: radius.md,
           ...styles.mediumText,
           backgroundColor: positive
             ? theme.noticeBackgroundLight
@@ -335,7 +336,7 @@ function Notification({
                     fontSize: 12,
                     backgroundColor: 'rgba(0, 0, 0, .05)',
                     padding: 10,
-                    borderRadius: 4,
+                    borderRadius: radius.xs,
                     width: '100%',
                   }}
                 >

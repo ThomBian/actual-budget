@@ -10,6 +10,7 @@ import { Input } from '@actual-app/components/input';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { Query } from '@actual-app/core/shared/query';
 import { tsToRelativeTime } from '@actual-app/core/shared/util';
@@ -59,7 +60,7 @@ export function ReconcilingMessage({
         alignSelf: 'center',
         backgroundColor: theme.tableBackground,
         ...styles.shadow,
-        borderRadius: 4,
+        borderRadius: radius.xs,
         marginTop: 5,
         marginBottom: 15,
         padding: 10,

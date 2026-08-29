@@ -5,6 +5,7 @@ import { SvgDelete } from '@actual-app/components/icons/v0';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import { TourTooltipButton } from './TourTooltipButton';
@@ -28,7 +29,7 @@ export function TourTooltip({
       data-testid="tour-tooltip"
       style={{
         backgroundColor: theme.menuBackground,
-        borderRadius: 8,
+        borderRadius: radius.md,
         color: theme.pageText,
         maxWidth: 360,
         padding: 16,

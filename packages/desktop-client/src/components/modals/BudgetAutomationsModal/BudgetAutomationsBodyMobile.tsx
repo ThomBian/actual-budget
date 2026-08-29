@@ -7,6 +7,7 @@ import { SvgDelete } from '@actual-app/components/icons/v0';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type {
   CategoryGroupEntity,
@@ -73,7 +74,7 @@ function AddButton({
         width: '100%',
         height: styles.mobileMinHeight,
         border: `1px dashed ${theme.tableBorder}`,
-        borderRadius: 6,
+        borderRadius: radius.sm,
         color: theme.pageTextPositive,
         fontWeight: 600,
         justifyContent: 'center',

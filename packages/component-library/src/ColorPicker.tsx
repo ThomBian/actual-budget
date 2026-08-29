@@ -18,6 +18,7 @@ import { css } from '@emotion/css';
 
 import { Input } from './Input';
 import { Popover } from './Popover';
+import { radius } from './tokens';
 
 function ColorSwatch(props: ColorSwatchProps) {
   return (
@@ -27,7 +28,7 @@ function ColorSwatch(props: ColorSwatchProps) {
         background: color.toString('hex'),
         width: '32px',
         height: '32px',
-        borderRadius: '4px',
+        borderRadius: `${radius.xs}px`,
         boxShadow: 'inset 0 0 0 1px rgba(0, 0, 0, 0.1)',
       })}
     />
@@ -104,7 +105,7 @@ function ColorSwatchPicker({
           className={css({
             position: 'relative',
             outline: 'none',
-            borderRadius: '4px',
+            borderRadius: `${radius.xs}px`,
             width: 'fit-content',
             forcedColorAdjust: 'none',
             cursor: 'pointer',

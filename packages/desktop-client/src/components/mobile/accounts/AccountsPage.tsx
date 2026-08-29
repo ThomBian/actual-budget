@@ -21,6 +21,7 @@ import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { TextOneLine } from '@actual-app/components/text-one-line';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 import type { AccountEntity } from '@actual-app/core/types/models';
 import { css } from '@emotion/css';
@@ -169,7 +170,7 @@ function AccountListItem({
             width: '100%',
             backgroundColor: theme.tableBackground,
             border: 'none',
-            borderRadius: 0,
+            borderRadius: radius.none,
             paddingLeft: 8,
           }}
           data-testid="account-list-item"
@@ -193,7 +194,7 @@ function AccountListItem({
                 width: 8,
                 flexShrink: 0,
                 height: 8,
-                borderRadius: 8,
+                borderRadius: radius.md,
                 opacity: isConnected ? 1 : 0,
               }}
             />
@@ -468,7 +469,7 @@ const AccountList = forwardRef<HTMLDivElement, AccountListProps>(
                 height: 4,
                 backgroundColor: theme.tableBorderSeparator,
                 opacity: 1,
-                borderRadius: 4,
+                borderRadius: radius.xs,
               },
             })}
           />
@@ -520,7 +521,7 @@ const AccountList = forwardRef<HTMLDivElement, AccountListProps>(
           flexDirection: 'column',
           margin: '0 8px',
           border: `1px solid ${theme.tableBorder}`,
-          borderRadius: 8,
+          borderRadius: radius.md,
           overflow: 'hidden',
         }}
       >

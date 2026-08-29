@@ -20,6 +20,7 @@ import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import { send } from '@actual-app/core/platform/client/connection';
@@ -677,7 +678,7 @@ function ActionEditor({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderRadius: 4,
+                borderRadius: radius.xs,
               }}
               aria-label={t('Formula mode indicator')}
               role="img"
@@ -1433,7 +1434,7 @@ export function RuleEditor({
                       ? {
                           borderColor: theme.tableBorder,
                           borderWidth: '1px',
-                          borderRadius: '5px',
+                          borderRadius: `${radius.xs}px`,
                           padding: '5px',
                         }
                       : {}

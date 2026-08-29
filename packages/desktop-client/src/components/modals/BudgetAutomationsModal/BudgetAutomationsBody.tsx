@@ -6,6 +6,7 @@ import { SvgDelete } from '@actual-app/components/icons/v0';
 import { SvgInformationCircle } from '@actual-app/components/icons/v2';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { Tooltip } from '@actual-app/components/tooltip';
 import { View } from '@actual-app/components/view';
 import type {
@@ -42,7 +43,7 @@ const ALWAYS_SCROLL_CLASS = css({
   '&::-webkit-scrollbar-thumb': {
     width: 7,
     minHeight: 24,
-    borderRadius: 30,
+    borderRadius: radius.pill,
     backgroundClip: 'padding-box',
     border: '2px solid rgba(0, 0, 0, 0)',
     backgroundColor: theme.tableBorder,
@@ -93,7 +94,7 @@ function SidebarAddButton({
         width: '100%',
         padding: 10,
         border: `1px dashed ${theme.tableBorder}`,
-        borderRadius: 6,
+        borderRadius: radius.sm,
         color: theme.pageTextPositive,
         fontWeight: 600,
         fontSize: 12,

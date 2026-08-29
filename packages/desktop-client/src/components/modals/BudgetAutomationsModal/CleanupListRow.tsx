@@ -3,6 +3,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { SvgRefresh } from '@actual-app/components/icons/v1';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
+import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
 
 import type { CleanupConfig } from '#components/budget/goals/cleanupModel';
@@ -44,7 +45,7 @@ export function CleanupListRow({
         alignItems: 'center',
         gap: 10,
         padding: 10,
-        borderRadius: 6,
+        borderRadius: radius.sm,
         border: `1px solid ${borderColor}`,
         backgroundColor,
         cursor: 'pointer',
@@ -54,7 +55,7 @@ export function CleanupListRow({
         style={{
           width: 28,
           height: 28,
-          borderRadius: 6,
+          borderRadius: radius.sm,
           backgroundColor: isActive
             ? theme.upcomingBackground
             : theme.pillBackground,
