@@ -253,4 +253,24 @@ export class BudgetPage {
       .getByText(name, { exact: true })
       .click({ button: 'right' });
   }
+
+  async toggleCategoryGroupSelection(name: string) {
+    await this.budgetTable
+      .getByRole('button', {
+        name: new RegExp(`^(Select|Deselect) all categories in ${name}$`),
+      })
+      .click();
+  }
+
+  async toggleCategorySelection(name: string) {
+    await this.budgetTable
+      .getByRole('button', {
+        name: new RegExp(`^(Select|Deselect) category ${name}$`),
+      })
+      .click();
+  }
+
+  get selectedCategoriesButton() {
+    return this.page.getByTestId('selected-categories-select-button');
+  }
 }

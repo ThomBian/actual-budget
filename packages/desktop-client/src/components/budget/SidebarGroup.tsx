@@ -23,6 +23,11 @@ import { InputCell } from '#components/table';
 import { useContextMenu } from '#hooks/useContextMenu';
 import { useFeatureFlag } from '#hooks/useFeatureFlag';
 import { useGlobalPref } from '#hooks/useGlobalPref';
+import { useLocalPref } from '#hooks/useLocalPref';
+import { useSelectedDispatch, useSelectedItems } from '#hooks/useSelected';
+
+import { SidebarSelectButton } from './SidebarSelectButton';
+import type { SelectionState } from './SidebarSelectButton';
 
 type SidebarGroupProps = {
   group: CategoryGroupEntity;
@@ -64,10 +69,41 @@ export function SidebarGroup({
 }: SidebarGroupProps) {
   const { t } = useTranslation();
   const isGoalTemplatesEnabled = useFeatureFlag('goalTemplatesEnabled');
+  const selectedCategoryIds = useSelectedItems();
+  const dispatchSelected = useSelectedDispatch();
+  const [showHiddenCategories] = useLocalPref('budget.showHiddenCategories');
   const [categoryExpandedStatePref] = useGlobalPref('categoryExpandedState');
   const categoryExpandedState = categoryExpandedStatePref ?? 0;
 
   const temporary = group.id === 'new';
+
+  // The group checkbox is an aggregate over the categories the table shows,
+  // since those are what the bulk actions actually run against.
+  const selectableCategoryIds = (group.categories ?? [])
+    .filter(category => showHiddenCategories || !category.hidden)
+    .map(category => category.id);
+  const selectedCount = selectableCategoryIds.filter(id =>
+    selectedCategoryIds.has(id),
+  ).length;
+  const selectionState: SelectionState =
+    selectedCount === 0
+      ? 'unchecked'
+      : selectedCount === selectableCategoryIds.length
+        ? 'checked'
+        : 'indeterminate';
+  const isSelectable =
+    isGoalTemplatesEnabled &&
+    !dragPreview &&
+    !temporary &&
+    selectableCategoryIds.length > 0;
+
+  const toggleGroupSelection = () => {
+    const shouldSelect = selectionState !== 'checked';
+
+    selectableCategoryIds
+      .filter(id => selectedCategoryIds.has(id) !== shouldSelect)
+      .forEach(id => dispatchSelected({ type: 'select', id }));
+  };
   const canSortCategories =
     !!onSortCategories && (group.categories?.length ?? 0) > 1;
   const triggerRef = useRef(null);
@@ -127,6 +163,21 @@ export function SidebarGroup({
         onToggleCollapse(group.id);
       }}
     >
+      {isSelectable && (
+        <SidebarSelectButton
+          label={
+            selectionState === 'checked'
+              ? t('Deselect all categories in {{groupName}}', {
+                  groupName: group.name,
+                })
+              : t('Select all categories in {{groupName}}', {
+                  groupName: group.name,
+                })
+          }
+          state={selectionState}
+          onSelect={toggleGroupSelection}
+        />
+      )}
       {!dragPreview && (
         <SvgExpandArrow
           width={8}

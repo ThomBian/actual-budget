@@ -14,10 +14,13 @@ import { styles } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
 import { radius } from '@actual-app/components/tokens';
 import { View } from '@actual-app/components/view';
+import type { CategoryEntity } from '@actual-app/core/types/models';
 
 import { useGlobalPref } from '#hooks/useGlobalPref';
+import { useSelectedItems } from '#hooks/useSelected';
 
 import { RenderMonths } from './RenderMonths';
+import { SelectedCategoriesButton } from './SelectedCategoriesButton';
 import { getScrollbarWidth } from './util';
 
 import { useBudgetComponents } from '.';
@@ -26,14 +29,20 @@ type BudgetTotalsProps = {
   toggleHiddenCategories: () => void;
   expandAllCategories: () => void;
   collapseAllCategories: () => void;
+  onApplyTemplatesToSelection: (params: {
+    categoryIds: Array<CategoryEntity['id']>;
+    force: boolean;
+  }) => void;
 };
 
 export const BudgetTotals = memo(function BudgetTotals({
   toggleHiddenCategories,
   expandAllCategories,
   collapseAllCategories,
+  onApplyTemplatesToSelection,
 }: BudgetTotalsProps) {
   const { t } = useTranslation();
+  const selectedCategoryIds = useSelectedItems();
   const [categoryExpandedStatePref, setCategoryExpandedStatePref] =
     useGlobalPref('categoryExpandedState');
   const categoryExpandedState = categoryExpandedStatePref ?? 0;
@@ -130,7 +139,13 @@ export const BudgetTotals = memo(function BudgetTotals({
           )}
         </Button>
         <View style={{ flexGrow: '1' }}>
-          <Trans>Category</Trans>
+          {selectedCategoryIds.size > 0 ? (
+            <SelectedCategoriesButton
+              onApplyTemplates={onApplyTemplatesToSelection}
+            />
+          ) : (
+            <Trans>Category</Trans>
+          )}
         </View>
         <Button
           ref={triggerRef}

@@ -349,6 +349,90 @@ describe('applyMultipleCategoryTemplates', () => {
     expect(cat2Budget?.amount).toBe(20000);
   });
 
+  it('leaves already-budgeted categories alone when force is false', async () => {
+    // The bulk "Apply templates" action fills in the blanks: cat2 already has
+    // $50 budgeted, so only cat1 should be touched.
+    setupSheetMock({
+      'to-budget': 100000,
+      'budget-cat-1': 0,
+      'budget-cat-2': 5000,
+    });
+    setupAqlMultiCategory([cat1, cat2], {
+      [cat1.id]: [
+        {
+          type: 'periodic',
+          amount: 100,
+          period: { period: 'month', amount: 1 },
+          starting: '2024-01-01',
+          directive: 'template',
+          priority: 1,
+        },
+      ],
+      [cat2.id]: [
+        {
+          type: 'periodic',
+          amount: 200,
+          period: { period: 'month', amount: 1 },
+          starting: '2024-01-01',
+          directive: 'template',
+          priority: 1,
+        },
+      ],
+    });
+
+    await applyMultipleCategoryTemplates({
+      month: '2024-01',
+      categoryIds: [cat1.id, cat2.id],
+      force: false,
+    });
+
+    const budgetCalls = vi
+      .mocked(actions.setBudget)
+      .mock.calls.map(call => call[0]);
+    expect(budgetCalls.map(c => c.category)).toEqual([cat1.id]);
+    expect(budgetCalls[0].amount).toBe(10000);
+  });
+
+  it('overwrites already-budgeted categories by default', async () => {
+    setupSheetMock({
+      'to-budget': 100000,
+      'budget-cat-1': 0,
+      'budget-cat-2': 5000,
+    });
+    setupAqlMultiCategory([cat1, cat2], {
+      [cat1.id]: [
+        {
+          type: 'periodic',
+          amount: 100,
+          period: { period: 'month', amount: 1 },
+          starting: '2024-01-01',
+          directive: 'template',
+          priority: 1,
+        },
+      ],
+      [cat2.id]: [
+        {
+          type: 'periodic',
+          amount: 200,
+          period: { period: 'month', amount: 1 },
+          starting: '2024-01-01',
+          directive: 'template',
+          priority: 1,
+        },
+      ],
+    });
+
+    await applyMultipleCategoryTemplates({
+      month: '2024-01',
+      categoryIds: [cat1.id, cat2.id],
+    });
+
+    const budgetCalls = vi
+      .mocked(actions.setBudget)
+      .mock.calls.map(call => call[0]);
+    expect(budgetCalls.map(c => c.category).sort()).toEqual([cat1.id, cat2.id]);
+  });
+
   it('clamps lower-priority categories when funds run out', async () => {
     // Only $150 available; cat1 (p1) wants $100, cat2 (p2) wants $100.
     // p1 fully funded, p2 gets the remaining $50.

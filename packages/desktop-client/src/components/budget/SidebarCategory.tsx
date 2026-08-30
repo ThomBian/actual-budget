@@ -16,9 +16,12 @@ import type {
 
 import { InputCell } from '#components/table';
 import { useContextMenu } from '#hooks/useContextMenu';
+import { useFeatureFlag } from '#hooks/useFeatureFlag';
 import { useGlobalPref } from '#hooks/useGlobalPref';
+import { useSelectedDispatch, useSelectedItems } from '#hooks/useSelected';
 
 import { SidebarCategoryButtons } from './SidebarCategoryButtons';
+import { SidebarSelectButton } from './SidebarSelectButton';
 
 type SidebarCategoryProps = {
   innerRef: Ref<HTMLDivElement>;
@@ -60,10 +63,15 @@ export function SidebarCategory({
   onHideNewCategory,
 }: SidebarCategoryProps) {
   const { t } = useTranslation();
+  const isGoalTemplatesEnabled = useFeatureFlag('goalTemplatesEnabled');
+  const selectedCategoryIds = useSelectedItems();
+  const dispatchSelected = useSelectedDispatch();
   const [categoryExpandedStatePref] = useGlobalPref('categoryExpandedState');
   const categoryExpandedState = categoryExpandedStatePref ?? 0;
 
   const temporary = category.id === 'new';
+  const isSelected = selectedCategoryIds.has(category.id);
+  const isSelectable = isGoalTemplatesEnabled && !dragPreview && !temporary;
   const triggerRef = useRef(null);
   const { handleContextMenu } = useContextMenu({
     triggerRef,
@@ -99,6 +107,27 @@ export function SidebarCategory({
       }}
       ref={triggerRef}
     >
+      {isSelectable && (
+        <SidebarSelectButton
+          label={
+            isSelected
+              ? t('Deselect category {{categoryName}}', {
+                  categoryName: category.name,
+                })
+              : t('Select category {{categoryName}}', {
+                  categoryName: category.name,
+                })
+          }
+          state={isSelected ? 'checked' : 'unchecked'}
+          onSelect={({ isRangeSelect }) =>
+            dispatchSelected({
+              type: 'select',
+              id: category.id,
+              isRangeSelect,
+            })
+          }
+        />
+      )}
       <TextOneLine data-testid="category-name">{category.name}</TextOneLine>
       <View style={{ flexShrink: 0, marginLeft: 5 }}>
         <Button

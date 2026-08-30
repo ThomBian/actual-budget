@@ -93,9 +93,13 @@ export async function overwriteTemplate({
 export async function applyMultipleCategoryTemplates({
   month,
   categoryIds,
+  // Existing callers overwrite; bulk "apply" passes false to leave
+  // already-budgeted categories alone.
+  force = true,
 }: {
   month: string;
   categoryIds: Array<CategoryEntity['id']>;
+  force?: boolean;
 }) {
   const { data: categoryData }: { data: CategoryEntity[] } = await aqlQuery(
     q('categories')
@@ -106,7 +110,7 @@ export async function applyMultipleCategoryTemplates({
   const categoryTemplates = await getTemplates(c => categoryIds.includes(c.id));
   const ret = await processTemplate(
     month,
-    true,
+    force,
     categoryTemplates,
     categoryData,
   );
