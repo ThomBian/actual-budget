@@ -140,21 +140,25 @@ export class Navigation {
   async createAccount(data: AccountEntry) {
     await this.page.getByRole('button', { name: 'Add account' }).click();
 
+    // Scope every field to the modal: the page behind it also has labels that
+    // loosely match these names.
+    const modal = this.page.getByRole('dialog');
+
     // Wait for the form heading to confirm it is fully mounted before
     // touching any fields.
-    await this.page
+    await modal
       .getByRole('heading', { name: 'Add account' })
       .waitFor({ state: 'visible' });
 
-    await fillReactInput(this.page.getByLabel('Name'), data.name);
-    await fillReactInput(this.page.getByLabel('Balance'), String(data.balance));
+    await fillReactInput(modal.getByLabel('Name'), data.name);
+    await fillReactInput(modal.getByLabel('Balance'), String(data.balance));
 
     if (data.offBudget) {
-      await this.page.getByLabel('Off budget').click();
+      await modal.getByLabel('Off budget').click();
     }
 
     await clickReactAriaButton(
-      this.page.getByRole('button', { name: 'Create', exact: true }),
+      modal.getByRole('button', { name: 'Create', exact: true }),
     );
 
     const accountPage = new AccountPage(this.page);

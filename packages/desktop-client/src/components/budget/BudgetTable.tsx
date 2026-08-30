@@ -93,14 +93,19 @@ export function BudgetTable(props: BudgetTableProps) {
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Only groups the table actually renders can be selected, so range selection
-  // never reaches past a hidden group.
-  const selectableGroups = categoryGroups.filter(
-    group => showHiddenCategories || !group.hidden,
-  );
-  const selectedGroups = useSelected(
-    'budget-category-groups',
-    selectableGroups,
+  // Selection is held as categories — that is what the bulk actions run
+  // against, and it lets a group checkbox aggregate over its own rows. The
+  // list is flattened in display order so shift-click ranges follow the table.
+  const selectableCategories = categoryGroups
+    .filter(group => showHiddenCategories || !group.hidden)
+    .flatMap(group =>
+      (group.categories ?? []).filter(
+        category => showHiddenCategories || !category.hidden,
+      ),
+    );
+  const selectedCategories = useSelected(
+    'budget-categories',
+    selectableCategories,
     [],
   );
 
@@ -257,7 +262,7 @@ export function BudgetTable(props: BudgetTableProps) {
 
   const schedulesQuery = useMemo(() => q('schedules').select('*'), []);
 
-  const onApplyTemplatesToSelectedGroups = ({
+  const onApplyTemplatesToSelection = ({
     categoryIds,
     force,
   }: {
@@ -314,12 +319,12 @@ export function BudgetTable(props: BudgetTableProps) {
         monthBounds={monthBounds}
         type={type}
       >
-        <SelectedProvider instance={selectedGroups}>
+        <SelectedProvider instance={selectedCategories}>
           <BudgetTotals
             toggleHiddenCategories={toggleHiddenCategories}
             expandAllCategories={expandAllCategories}
             collapseAllCategories={collapseAllCategories}
-            onApplyTemplatesToSelectedGroups={onApplyTemplatesToSelectedGroups}
+            onApplyTemplatesToSelection={onApplyTemplatesToSelection}
           />
           <View
             ref={scrollContainerRef}

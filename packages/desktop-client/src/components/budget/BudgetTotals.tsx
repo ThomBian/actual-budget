@@ -20,7 +20,7 @@ import { useGlobalPref } from '#hooks/useGlobalPref';
 import { useSelectedItems } from '#hooks/useSelected';
 
 import { RenderMonths } from './RenderMonths';
-import { SelectedCategoryGroupsButton } from './SelectedCategoryGroupsButton';
+import { SelectedCategoriesButton } from './SelectedCategoriesButton';
 import { getScrollbarWidth } from './util';
 
 import { useBudgetComponents } from '.';
@@ -29,7 +29,7 @@ type BudgetTotalsProps = {
   toggleHiddenCategories: () => void;
   expandAllCategories: () => void;
   collapseAllCategories: () => void;
-  onApplyTemplatesToSelectedGroups: (params: {
+  onApplyTemplatesToSelection: (params: {
     categoryIds: Array<CategoryEntity['id']>;
     force: boolean;
   }) => void;
@@ -39,10 +39,10 @@ export const BudgetTotals = memo(function BudgetTotals({
   toggleHiddenCategories,
   expandAllCategories,
   collapseAllCategories,
-  onApplyTemplatesToSelectedGroups,
+  onApplyTemplatesToSelection,
 }: BudgetTotalsProps) {
   const { t } = useTranslation();
-  const selectedGroupIds = useSelectedItems();
+  const selectedCategoryIds = useSelectedItems();
   const [categoryExpandedStatePref, setCategoryExpandedStatePref] =
     useGlobalPref('categoryExpandedState');
   const categoryExpandedState = categoryExpandedStatePref ?? 0;
@@ -139,9 +139,9 @@ export const BudgetTotals = memo(function BudgetTotals({
           )}
         </Button>
         <View style={{ flexGrow: '1' }}>
-          {selectedGroupIds.size > 0 ? (
-            <SelectedCategoryGroupsButton
-              onApplyTemplates={onApplyTemplatesToSelectedGroups}
+          {selectedCategoryIds.size > 0 ? (
+            <SelectedCategoriesButton
+              onApplyTemplates={onApplyTemplatesToSelection}
             />
           ) : (
             <Trans>Category</Trans>

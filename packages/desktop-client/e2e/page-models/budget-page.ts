@@ -254,15 +254,23 @@ export class BudgetPage {
       .click({ button: 'right' });
   }
 
-  async selectCategoryGroup(name: string) {
-    // The checkbox only appears once the row is hovered
-    await this.budgetTable.getByText(name, { exact: true }).hover();
+  async toggleCategoryGroupSelection(name: string) {
     await this.budgetTable
-      .getByRole('button', { name: `Select category group ${name}` })
+      .getByRole('button', {
+        name: new RegExp(`^(Select|Deselect) all categories in ${name}$`),
+      })
       .click();
   }
 
-  get selectedCategoryGroupsButton() {
-    return this.page.getByTestId('selected-category-groups-select-button');
+  async toggleCategorySelection(name: string) {
+    await this.budgetTable
+      .getByRole('button', {
+        name: new RegExp(`^(Select|Deselect) category ${name}$`),
+      })
+      .click();
+  }
+
+  get selectedCategoriesButton() {
+    return this.page.getByTestId('selected-categories-select-button');
   }
 }

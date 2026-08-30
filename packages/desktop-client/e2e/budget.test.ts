@@ -80,16 +80,22 @@ test.describe('Budget', () => {
     await expect(menu.getByRole('button', { name: 'Rename' })).toBeVisible();
   });
 
-  test('bulk template actions apply to the selected category groups', async () => {
-    await budgetPage.selectCategoryGroup('Usual Expenses');
-    await budgetPage.selectCategoryGroup('Bills');
+  test('bulk template actions apply to the selected categories', async () => {
+    await budgetPage.toggleCategoryGroupSelection('Usual Expenses');
+    await budgetPage.toggleCategoryGroupSelection('Bills');
 
-    await expect(budgetPage.selectedCategoryGroupsButton).toHaveText(
-      /2 groups/,
+    await expect(budgetPage.selectedCategoriesButton).toHaveText(
+      /13 categories/,
     );
 
-    await budgetPage.selectedCategoryGroupsButton.click();
-    const menu = page.getByTestId('selected-category-groups-select-tooltip');
+    // Unticking one category leaves the rest of its group selected
+    await budgetPage.toggleCategorySelection('Medical');
+    await expect(budgetPage.selectedCategoriesButton).toHaveText(
+      /12 categories/,
+    );
+
+    await budgetPage.selectedCategoriesButton.click();
+    const menu = page.getByTestId('selected-categories-select-tooltip');
     await expect(
       menu.getByRole('button', { name: 'Apply templates' }),
     ).toBeVisible();
