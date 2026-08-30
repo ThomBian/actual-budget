@@ -1,6 +1,5 @@
 // @ts-strict-ignore
 import React, { useRef, useState } from 'react';
-import type { CSSProperties } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AlignedText } from '@actual-app/components/aligned-text';
@@ -13,6 +12,7 @@ import { InitialFocus } from '@actual-app/components/initial-focus';
 import { Input } from '@actual-app/components/input';
 import { SpaceBetween } from '@actual-app/components/space-between';
 import { styles } from '@actual-app/components/styles';
+import type { CSSProperties } from '@actual-app/components/styles';
 import { Text } from '@actual-app/components/text';
 import { theme } from '@actual-app/components/theme';
 import { radius } from '@actual-app/components/tokens';
@@ -37,17 +37,13 @@ import { openAccountCloseModal } from '#modals/modalsSlice';
 import { useDispatch, useSelector } from '#redux';
 import type { Binding, SheetFields } from '#spreadsheet';
 
-export const accountNameStyle: CSSProperties = {
-  marginTop: -2,
-  marginBottom: 2,
-  paddingTop: 4,
-  paddingBottom: 4,
-  paddingRight: 15,
-  paddingLeft: 10,
-  textDecoration: 'none',
-  color: theme.sidebarItemText,
-  ':hover': { backgroundColor: theme.sidebarItemBackgroundHover },
+import { activeRowStyle, rowStyle } from './Item';
+
+const accountNameStyle: CSSProperties = {
+  ...rowStyle,
   ...styles.smallText,
+  paddingTop: 5,
+  paddingBottom: 5,
 };
 
 type AccountProps<FieldName extends SheetFields<'account'>> = {
@@ -63,7 +59,6 @@ type AccountProps<FieldName extends SheetFields<'account'>> = {
   outerStyle?: CSSProperties;
   onDragChange?: OnDragChangeCallback<{ id: string }>;
   onDrop?: OnDropCallback;
-  titleAccount?: boolean;
   isExactPathMatch?: boolean;
   balanceTestId?: string;
 };
@@ -81,7 +76,6 @@ export function Account<FieldName extends SheetFields<'account'>>({
   outerStyle,
   onDragChange,
   onDrop,
-  titleAccount,
   isExactPathMatch,
   balanceTestId,
 }: AccountProps<FieldName>) {
@@ -129,6 +123,14 @@ export function Account<FieldName extends SheetFields<'account'>>({
 
   const balanceCell = <CellValue binding={query} type="financial" />;
 
+  // The dot is the only signal that a bank connection exists, and it says which
+  // state it is in by color alone. Name it for anyone not reading color.
+  const syncStatusLabel = pending
+    ? t('Syncing')
+    : failed
+      ? t('Sync failed')
+      : t('Connected to bank');
+
   const isContextMenuOpen = useSelector(state =>
     state.contextMenu.items.some(
       i =>
@@ -173,15 +175,13 @@ export function Account<FieldName extends SheetFields<'account'>>({
               ...accountNameStyle,
               ...style,
               position: 'relative',
-              borderLeft: '4px solid transparent',
               ...(updated && {
                 fontWeight: 700,
                 color: theme.sidebarItemTextUpdated,
               }),
             }}
             activeStyle={{
-              borderColor: theme.sidebarItemAccentSelected,
-              color: theme.sidebarItemTextSelected,
+              ...activeRowStyle,
               // This is kind of a hack, but we don't ever want the account
               // that the user is looking at to be "bolded" which means it
               // has unread transactions. The system does mark is read and
@@ -194,44 +194,41 @@ export function Account<FieldName extends SheetFields<'account'>>({
               },
             }}
           >
-            <View
-              style={{
-                position: 'absolute',
-                left: 0,
-                top: 0,
-                bottom: 0,
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}
-            >
-              <div
-                className={cx(
-                  'dot',
-                  css({
-                    marginRight: 3,
-                    width: 5,
-                    height: 5,
-                    borderRadius: radius.xs,
-                    backgroundColor: pending
-                      ? theme.sidebarItemBackgroundPending
-                      : failed
-                        ? theme.sidebarItemBackgroundFailed
-                        : theme.sidebarItemBackgroundPositive,
-                    marginLeft: 2,
-                    transition: 'transform .3s',
-                    opacity: connected ? 1 : 0,
-                  }),
-                )}
-              />
-            </View>
+            {connected && (
+              <View
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: 0,
+                  bottom: 0,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
+              >
+                <div
+                  role="img"
+                  aria-label={syncStatusLabel}
+                  className={cx(
+                    'dot',
+                    css({
+                      marginRight: 3,
+                      width: 5,
+                      height: 5,
+                      borderRadius: radius.xs,
+                      backgroundColor: pending
+                        ? theme.sidebarItemBackgroundPending
+                        : failed
+                          ? theme.sidebarItemBackgroundFailed
+                          : theme.sidebarItemBackgroundPositive,
+                      marginLeft: 2,
+                      transition: 'transform .3s',
+                    }),
+                  )}
+                />
+              </View>
+            )}
 
             <AlignedText
-              style={
-                titleAccount && {
-                  borderBottom: `1.5px solid rgba(255,255,255,0.4)`,
-                  paddingBottom: '3px',
-                }
-              }
               left={
                 isEditing ? (
                   <InitialFocus>

@@ -73,6 +73,7 @@ bundle.mobile.js.map
 # defensive hook wiring and design context files are committed
 .impeccable/config.local.json
 .impeccable/live/
+.impeccable/hook.cache.json
 DESIGN.json
 **/skills/impeccable/
 .cursor/agents/impeccable-*.md

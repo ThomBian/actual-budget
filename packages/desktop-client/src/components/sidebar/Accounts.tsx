@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import type { CSSProperties } from '@actual-app/components/styles';
 import { theme } from '@actual-app/components/theme';
 import { View } from '@actual-app/components/view';
 import type { AccountEntity } from '@actual-app/core/types/models';
@@ -17,9 +18,13 @@ import { useSelector } from '#redux';
 import * as bindings from '#spreadsheet/bindings';
 
 import { Account } from './Account';
-import { SecondaryItem } from './SecondaryItem';
+import { NavSection } from './NavSection';
 
-const fontWeight = 600;
+const GROUP_HEADER_STYLE = {
+  fontWeight: 600,
+  marginTop: 16,
+  marginBottom: 5,
+};
 
 export function Accounts() {
   const { t } = useTranslation();
@@ -71,6 +76,26 @@ export function Accounts() {
     setShowClosedAccountsPref(!showClosedAccounts);
   };
 
+  const renderAccount = (
+    account: AccountEntity,
+    outerStyle?: CSSProperties,
+  ) => (
+    <Account
+      key={account.id}
+      name={account.name}
+      account={account}
+      connected={!!account.bank}
+      pending={syncingAccountIds.includes(account.id)}
+      failed={isAccountFailedSync(account)}
+      updated={updatedAccounts.includes(account.id)}
+      to={getAccountPath(account)}
+      query={bindings.accountBalance(account.id)}
+      onDragChange={onDragChange}
+      onDrop={onReorder}
+      outerStyle={outerStyle}
+    />
+  );
+
   return (
     <View
       style={{
@@ -80,11 +105,13 @@ export function Accounts() {
         },
       }}
     >
+      {/* The only rule in the menu: it separates going places from seeing
+          money. Groups below it are told apart by weight and space. */}
       <View
         style={{
           height: 1,
           backgroundColor: theme.sidebarItemBackgroundHover,
-          marginTop: 15,
+          marginTop: 16,
           flexShrink: 0,
         }}
       />
@@ -94,7 +121,7 @@ export function Accounts() {
           name={t('All accounts')}
           to="/accounts"
           query={bindings.allAccountBalance()}
-          style={{ fontWeight, marginTop: 15 }}
+          style={{ fontWeight: 600, marginTop: 16 }}
           isExactPathMatch
           balanceTestId="sidebar-all-accounts-balance"
         />
@@ -104,90 +131,39 @@ export function Accounts() {
             name={t('On budget')}
             to="/accounts/onbudget"
             query={bindings.onBudgetAccountBalance()}
-            style={{
-              fontWeight,
-              marginTop: 13,
-              marginBottom: 5,
-            }}
-            titleAccount
+            style={GROUP_HEADER_STYLE}
             balanceTestId="sidebar-on-budget-balance"
           />
         )}
 
-        {onBudgetAccounts.map((account, i) => (
-          <Account
-            key={account.id}
-            name={account.name}
-            account={account}
-            connected={!!account.bank}
-            pending={syncingAccountIds.includes(account.id)}
-            failed={isAccountFailedSync(account)}
-            updated={updatedAccounts.includes(account.id)}
-            to={getAccountPath(account)}
-            query={bindings.accountBalance(account.id)}
-            onDragChange={onDragChange}
-            onDrop={onReorder}
-            outerStyle={makeDropPadding(i)}
-          />
-        ))}
+        {onBudgetAccounts.map((account, i) =>
+          renderAccount(account, makeDropPadding(i)),
+        )}
 
         {offbudgetAccounts.length > 0 && (
           <Account
             name={t('Off budget')}
             to="/accounts/offbudget"
             query={bindings.offBudgetAccountBalance()}
-            style={{
-              fontWeight,
-              marginTop: 13,
-              marginBottom: 5,
-            }}
-            titleAccount
+            style={GROUP_HEADER_STYLE}
             balanceTestId="sidebar-off-budget-balance"
           />
         )}
 
-        {offbudgetAccounts.map((account, i) => (
-          <Account
-            key={account.id}
-            name={account.name}
-            account={account}
-            connected={!!account.bank}
-            pending={syncingAccountIds.includes(account.id)}
-            failed={isAccountFailedSync(account)}
-            updated={updatedAccounts.includes(account.id)}
-            to={getAccountPath(account)}
-            query={bindings.accountBalance(account.id)}
-            onDragChange={onDragChange}
-            onDrop={onReorder}
-            outerStyle={makeDropPadding(i)}
-          />
-        ))}
-
-        {closedAccounts.length > 0 && (
-          <SecondaryItem
-            style={{ marginTop: 15 }}
-            title={
-              showClosedAccounts
-                ? t('Closed accounts')
-                : t('Closed accounts...')
-            }
-            onClick={onToggleClosedAccounts}
-            bold
-          />
+        {offbudgetAccounts.map((account, i) =>
+          renderAccount(account, makeDropPadding(i)),
         )}
 
-        {showClosedAccounts &&
-          closedAccounts.map(account => (
-            <Account
-              key={account.id}
-              name={account.name}
-              account={account}
-              to={getAccountPath(account)}
-              query={bindings.accountBalance(account.id)}
-              onDragChange={onDragChange}
-              onDrop={onReorder}
-            />
-          ))}
+        {closedAccounts.length > 0 && (
+          <NavSection
+            title={t('Closed accounts')}
+            isOpen={!!showClosedAccounts}
+            onToggle={onToggleClosedAccounts}
+            style={{ marginTop: 16 }}
+          >
+            {closedAccounts.map(account => renderAccount(account))}
+          </NavSection>
+        )}
       </View>
     </View>
   );

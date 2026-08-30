@@ -21,8 +21,8 @@ import { useDispatch } from '#redux';
 
 import { Accounts } from './Accounts';
 import { BudgetName } from './BudgetName';
+import { Item } from './Item';
 import { PrimaryButtons } from './PrimaryButtons';
-import { SecondaryButtons } from './SecondaryButtons';
 import { useSidebar } from './SidebarProvider';
 import { ToggleButton } from './ToggleButton';
 
@@ -126,15 +126,13 @@ export function Sidebar() {
 
             <Accounts />
 
-            <SecondaryButtons
-              buttons={[
-                {
-                  title: t('Add account'),
-                  Icon: SvgAdd,
-                  onClick: onAddAccount,
-                  dataTestId: 'sidebar-add-account',
-                },
-              ]}
+            <Item
+              title={t('Add account')}
+              Icon={SvgAdd}
+              onClick={onAddAccount}
+              level="secondary"
+              style={{ marginTop: 10, marginBottom: 10 }}
+              dataTestId="sidebar-add-account"
             />
           </View>
         </View>
