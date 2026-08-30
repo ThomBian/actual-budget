@@ -18,9 +18,6 @@ const SELECTION_BAR_WIDTH = 4;
 // accounts, section headers - up with the budget name above them.
 const CONTENT_INSET = 20;
 
-/** Left step for rows nested inside a {@link NavSection}. */
-export const INDENT = 16;
-
 /**
  * The one row shape in the sidebar. Nav items, account rows and section headers
  * all build on it so the menu has a single hover, selection and inset model.

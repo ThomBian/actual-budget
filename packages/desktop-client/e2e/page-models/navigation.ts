@@ -99,54 +99,40 @@ export class Navigation {
     return new SchedulesPage(this.page);
   }
 
+  /**
+   * Open the budget-name menu and pick one of its entries. Payees, rules, bank
+   * sync, tags and settings live there rather than in the sidebar's nav list.
+   */
+  private async selectBudgetMenuItem(itemName: string) {
+    await clickReactAriaButton(this.page.getByTestId('budget-name'));
+
+    const item = this.page
+      .getByRole('menu')
+      .getByRole('button', { name: itemName, exact: true });
+    await item.waitFor();
+    await clickReactAriaButton(item);
+  }
+
   async goToRulesPage() {
-    const rulesLink = this.page.getByRole('link', { name: 'Rules' });
-
-    // Expand the "more" menu only if it is not already expanded
-    if (!(await rulesLink.isVisible())) {
-      await this.page.getByRole('button', { name: 'More' }).click();
-    }
-
-    await rulesLink.click();
+    await this.selectBudgetMenuItem('Rules');
 
     return new RulesPage(this.page);
   }
 
   async goToPayeesPage() {
-    const payeesLink = this.page.getByRole('link', { name: 'Payees' });
-
-    // Expand the "More" menu only if the Payees link is not visible
-    if (!(await payeesLink.isVisible())) {
-      await this.page.getByRole('button', { name: 'More' }).click();
-    }
-
-    await payeesLink.click();
+    await this.selectBudgetMenuItem('Payees');
 
     return new PayeesPage(this.page);
   }
 
   async goToBankSyncPage() {
-    const bankSyncLink = this.page.getByRole('link', { name: 'Bank Sync' });
-
-    // Expand the "more" menu only if it is not already expanded
-    if (!(await bankSyncLink.isVisible())) {
-      await this.page.getByRole('button', { name: 'More' }).click();
-    }
-
-    await bankSyncLink.click();
+    await this.selectBudgetMenuItem('Bank Sync');
 
     return new BankSyncPage(this.page);
   }
 
   async goToSettingsPage() {
-    const settingsLink = this.page.getByRole('link', { name: 'Settings' });
-
-    // Expand the "more" menu only if it is not already expanded
-    if (!(await settingsLink.isVisible())) {
-      await this.page.getByRole('button', { name: 'More' }).click();
-    }
-
-    await settingsLink.click();
+    await this.selectBudgetMenuItem('Settings');
 
     return new SettingsPage(this.page);
   }
