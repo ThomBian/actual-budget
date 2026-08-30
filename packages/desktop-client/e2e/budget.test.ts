@@ -80,6 +80,24 @@ test.describe('Budget', () => {
     await expect(menu.getByRole('button', { name: 'Rename' })).toBeVisible();
   });
 
+  test('bulk template actions apply to the selected category groups', async () => {
+    await budgetPage.selectCategoryGroup('Usual Expenses');
+    await budgetPage.selectCategoryGroup('Bills');
+
+    await expect(budgetPage.selectedCategoryGroupsButton).toHaveText(
+      /2 groups/,
+    );
+
+    await budgetPage.selectedCategoryGroupsButton.click();
+    const menu = page.getByTestId('selected-category-groups-select-tooltip');
+    await expect(
+      menu.getByRole('button', { name: 'Apply templates' }),
+    ).toBeVisible();
+    await expect(
+      menu.getByRole('button', { name: 'Overwrite with templates' }),
+    ).toBeVisible();
+  });
+
   test('right clicking budget name opens context menu', async () => {
     await page.getByTestId('budget-name').click({ button: 'right' });
     const menu = page.getByRole('menu');

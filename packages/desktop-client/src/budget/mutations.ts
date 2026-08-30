@@ -721,6 +721,8 @@ type ApplyBudgetActionPayload =
       month: string;
       args: {
         categories: Array<CategoryEntity['id']>;
+        /** Overwrite categories that are already budgeted. Defaults to true. */
+        force?: boolean;
       };
     }
   | {
@@ -858,6 +860,7 @@ export function useBudgetActions() {
           return await send('budget/apply-multiple-templates', {
             month,
             categoryIds: args.categories,
+            force: args.force,
           });
         case 'set-single-3-avg':
           await send('budget/set-n-month-avg', {

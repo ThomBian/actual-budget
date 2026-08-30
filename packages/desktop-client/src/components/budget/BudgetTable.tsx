@@ -15,6 +15,7 @@ import { SchedulesProvider } from '#hooks/useCachedSchedules';
 import { useCategories } from '#hooks/useCategories';
 import { useGlobalPref } from '#hooks/useGlobalPref';
 import { useLocalPref } from '#hooks/useLocalPref';
+import { SelectedProvider, useSelected } from '#hooks/useSelected';
 
 import { BudgetCategories } from './BudgetCategories';
 import { BudgetSummaries } from './BudgetSummaries';
@@ -91,6 +92,17 @@ export function BudgetTable(props: BudgetTableProps) {
   );
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Only groups the table actually renders can be selected, so range selection
+  // never reaches past a hidden group.
+  const selectableGroups = categoryGroups.filter(
+    group => showHiddenCategories || !group.hidden,
+  );
+  const selectedGroups = useSelected(
+    'budget-category-groups',
+    selectableGroups,
+    [],
+  );
 
   useLayoutEffect(() => {
     const savedScrollPosition = sessionStorage.getItem(
@@ -245,6 +257,19 @@ export function BudgetTable(props: BudgetTableProps) {
 
   const schedulesQuery = useMemo(() => q('schedules').select('*'), []);
 
+  const onApplyTemplatesToSelectedGroups = ({
+    categoryIds,
+    force,
+  }: {
+    categoryIds: Array<CategoryEntity['id']>;
+    force: boolean;
+  }) => {
+    onBudgetAction(startMonth, 'apply-multiple-templates', {
+      categories: categoryIds,
+      force,
+    });
+  };
+
   return (
     <View
       data-testid="budget-table"
@@ -289,48 +314,51 @@ export function BudgetTable(props: BudgetTableProps) {
         monthBounds={monthBounds}
         type={type}
       >
-        <BudgetTotals
-          toggleHiddenCategories={toggleHiddenCategories}
-          expandAllCategories={expandAllCategories}
-          collapseAllCategories={collapseAllCategories}
-        />
-        <View
-          ref={scrollContainerRef}
-          data-testid="budget-table-scroll-container"
-          style={{
-            overflowY: 'scroll',
-            overflowAnchor: 'none',
-            flex: 1,
-            paddingLeft: 5,
-            paddingRight: 5,
-          }}
-        >
+        <SelectedProvider instance={selectedGroups}>
+          <BudgetTotals
+            toggleHiddenCategories={toggleHiddenCategories}
+            expandAllCategories={expandAllCategories}
+            collapseAllCategories={collapseAllCategories}
+            onApplyTemplatesToSelectedGroups={onApplyTemplatesToSelectedGroups}
+          />
           <View
+            ref={scrollContainerRef}
+            data-testid="budget-table-scroll-container"
             style={{
-              flexShrink: 0,
+              overflowY: 'scroll',
+              overflowAnchor: 'none',
+              flex: 1,
+              paddingLeft: 5,
+              paddingRight: 5,
             }}
-            onKeyDown={onKeyDown}
           >
-            <SchedulesProvider query={schedulesQuery}>
-              <BudgetCategories
-                categoryGroups={categoryGroups}
-                editingCell={editing}
-                onEditMonth={onEditMonth}
-                onEditName={onEditName}
-                onSaveCategory={onSaveCategory}
-                onSaveGroup={onSaveGroup}
-                onDeleteCategory={onDeleteCategory}
-                onDeleteGroup={onDeleteGroup}
-                onReorderCategory={_onReorderCategory}
-                onReorderGroup={_onReorderGroup}
-                onBudgetAction={onBudgetAction}
-                onShowActivity={_onShowActivity}
-                onApplyBudgetTemplatesInGroup={onApplyBudgetTemplatesInGroup}
-                onSortCategories={onSortCategories}
-              />
-            </SchedulesProvider>
+            <View
+              style={{
+                flexShrink: 0,
+              }}
+              onKeyDown={onKeyDown}
+            >
+              <SchedulesProvider query={schedulesQuery}>
+                <BudgetCategories
+                  categoryGroups={categoryGroups}
+                  editingCell={editing}
+                  onEditMonth={onEditMonth}
+                  onEditName={onEditName}
+                  onSaveCategory={onSaveCategory}
+                  onSaveGroup={onSaveGroup}
+                  onDeleteCategory={onDeleteCategory}
+                  onDeleteGroup={onDeleteGroup}
+                  onReorderCategory={_onReorderCategory}
+                  onReorderGroup={_onReorderGroup}
+                  onBudgetAction={onBudgetAction}
+                  onShowActivity={_onShowActivity}
+                  onApplyBudgetTemplatesInGroup={onApplyBudgetTemplatesInGroup}
+                  onSortCategories={onSortCategories}
+                />
+              </SchedulesProvider>
+            </View>
           </View>
-        </View>
+        </SelectedProvider>
       </MonthsProvider>
     </View>
   );

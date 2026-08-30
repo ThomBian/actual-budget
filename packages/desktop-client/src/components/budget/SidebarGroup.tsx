@@ -23,6 +23,9 @@ import { InputCell } from '#components/table';
 import { useContextMenu } from '#hooks/useContextMenu';
 import { useFeatureFlag } from '#hooks/useFeatureFlag';
 import { useGlobalPref } from '#hooks/useGlobalPref';
+import { useSelectedDispatch, useSelectedItems } from '#hooks/useSelected';
+
+import { CategoryGroupSelectButton } from './CategoryGroupSelectButton';
 
 type SidebarGroupProps = {
   group: CategoryGroupEntity;
@@ -64,10 +67,14 @@ export function SidebarGroup({
 }: SidebarGroupProps) {
   const { t } = useTranslation();
   const isGoalTemplatesEnabled = useFeatureFlag('goalTemplatesEnabled');
+  const selectedGroupIds = useSelectedItems();
+  const dispatchSelected = useSelectedDispatch();
   const [categoryExpandedStatePref] = useGlobalPref('categoryExpandedState');
   const categoryExpandedState = categoryExpandedStatePref ?? 0;
 
   const temporary = group.id === 'new';
+  const isSelected = selectedGroupIds.has(group.id);
+  const isSelectable = isGoalTemplatesEnabled && !dragPreview && !temporary;
   const canSortCategories =
     !!onSortCategories && (group.categories?.length ?? 0) > 1;
   const triggerRef = useRef(null);
@@ -127,6 +134,20 @@ export function SidebarGroup({
         onToggleCollapse(group.id);
       }}
     >
+      {isSelectable && (
+        <View
+          style={{ flexShrink: 0 }}
+          className={selectedGroupIds.size > 0 ? undefined : 'hover-visible'}
+        >
+          <CategoryGroupSelectButton
+            groupName={group.name}
+            selected={isSelected}
+            onSelect={({ isRangeSelect }) =>
+              dispatchSelected({ type: 'select', id: group.id, isRangeSelect })
+            }
+          />
+        </View>
+      )}
       {!dragPreview && (
         <SvgExpandArrow
           width={8}

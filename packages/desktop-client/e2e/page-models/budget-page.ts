@@ -253,4 +253,16 @@ export class BudgetPage {
       .getByText(name, { exact: true })
       .click({ button: 'right' });
   }
+
+  async selectCategoryGroup(name: string) {
+    // The checkbox only appears once the row is hovered
+    await this.budgetTable.getByText(name, { exact: true }).hover();
+    await this.budgetTable
+      .getByRole('button', { name: `Select category group ${name}` })
+      .click();
+  }
+
+  get selectedCategoryGroupsButton() {
+    return this.page.getByTestId('selected-category-groups-select-button');
+  }
 }
